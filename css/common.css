@@ -1,0 +1,98 @@
+@font-face {
+    font-family: DUNG;
+    src: url("../font/DUNGRG.TTF");
+}
+
+html,body{
+    width: 1280px;
+    margin: 20px auto 0 auto;;
+}
+
+.border{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.container-1{
+    text-align: center;
+    width: 32%;
+    float: left;
+    padding: 0 2.5%;
+    margin: 0 1% 0 1%;
+    padding-bottom: 2.5%;
+    overflow: hidden;
+}
+
+.DD-font{
+    font-family: DUNG;
+    font-size: 3em;
+}
+
+.labels{
+    width: 15%;
+    float: left;
+}
+
+.inputs{
+    width: 85%;
+    float: left;
+}
+
+.input-field{
+    width: 80%;
+}
+
+.container-2{
+    width: 54%;
+    float: left;
+    text-align: center;
+    padding: 2.5% 2.5% 1.5% 2.5%;
+    overflow: hidden;
+}
+
+.sub-container{
+    float: left;
+    text-align: center;
+    width: 33.3333333333%;
+}
+
+.container-3{
+    width: 89%;
+    padding: 2.5% 0 1.5% 0;
+    margin: 2.5% 5% 0 5%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.atrib-container{
+    width: 14.666666666666%;
+    float: left;
+    margin: 0 1%;
+}
+
+.clearfix{
+    clear: both;
+}
+
+@media screen and (max-width: 640px){
+    html,body{
+        width: 640px;
+    }
+    .container-1{
+        width: 90%;
+        float: none;
+        margin: 0 auto 5% auto;
+        margin-bottom: 5%;
+    }
+    .container-2{
+        margin: 0 auto 5% auto;
+        width: 90%;
+        float: none;
+    }
+    .clearfix-toggle{
+        clear: both;
+    }
+    .atrib-container{
+        width: 31.333333%;
+    }
+}
