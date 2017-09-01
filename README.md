@@ -3,6 +3,7 @@ Projeto realizado para a disciplina de Programação WEB, ministrada no 8º per�
 
 ## Fase 1 do Projeto
 Serão montadas as páginas WEB com o uso de HTML e CSS.
+O importante nesta fase é a responsividade das páginas, sendo adaptadas para as resoluções de 1280, 960 e 640px.
 
 ## Fase 2 do Projeto
 Será realizada a conexão cliente-servidor com o uso de JavaScript e PHP.
