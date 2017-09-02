@@ -18,6 +18,15 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+.table{
+    display: flex;    
+}
+
+.row{
+    align-items: stretch;
+    flex: 1
+}
+
 input{
     text-align: center;
 }
@@ -34,6 +43,7 @@ input{
     margin: 0 1.5% 0 1.5%;
     padding: 0 1% 2.5% 1%;
     overflow: hidden;
+    background-color: red;
 }
 
 .DD-font{
@@ -62,6 +72,8 @@ input{
     padding: 2.5% 1% 1.5% 1%;
     margin: 0 1.5% 0 1.5%;
     overflow: hidden;
+
+    background-color: blue;
 }
 
 .sub-container{
@@ -76,12 +88,16 @@ input{
     margin: 2.5% auto 0 auto;
     text-align: center;
     overflow: hidden;
+
+    background-color: blueviolet;
 }
 .container-4{
     width: 20%;
-    margin: 2.5% 1.5% 0 1.5%;
+    margin: 0 0 0 1.5%;
     text-align: center;
     float: left;
+
+    background-color: pink;
 }
 .sub-container4-1{
     padding-top: 5%;  
@@ -102,16 +118,23 @@ input{
     padding-top: 5%;
 }
 
+.check-throws{
+    float: left;
+    width: 25%;
+    text-align: right;
+    padding-top: 1%;
+}
+
 .label-throws{
     float: left;
     width: 40%;
-    margin: 2.5% 0 0 10%;
+    margin: 2.5% 0 0 2.5%;
 }
 
 .input-throws{
     float: left;
-    width: 40%;
-    margin: 0 10% 0 0;
+    width: 30%;
+    margin: 0 2.5% 0 0;
 }
 
 .input-throws-field{
@@ -126,14 +149,16 @@ input{
 
 .container-5{
     width: 30%;
-    margin: 2.5% 1.5% 0 1.5%;
     text-align: center;  
     float: left;  
+
+    background-color: yellow;
 }
 
 .sub-container-5-1{
     width: 95%;
     margin: 0 2.5% 0 2.5%;
+    height: 15%;
 }
 
 .sub-container-5-2{
@@ -141,10 +166,37 @@ input{
     margin: 2.5% 2.5% 0 2.5%;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
+    height: 15%;
+}
+
+.sub-container-5-3{
+    width: 94%;
+    margin: 2.5% 2.5% 0 2.5%;
+    height: 43%;
+    overflow: hidden;
 }
 
 .sub-cont-5-input{
     width: 60%;
+}
+
+.sub-container-5-4{
+    width: 94%;
+    margin: 2.5% 2.5% 0 2.5%;
+    height: 11%;
+}
+
+.passive-input{
+    width: 20%;
+    float: left;
+    margin-top: 4%;
+    margin-left: 8%;
+}
+
+.passive-p{
+    width: 60%;
+    float: left;
+    margin-top: 6%;
 }
 
 .armor-div{
@@ -173,17 +225,6 @@ input{
     margin-bottom: 2.5%;
 }
 
-.container-6{
-    float: left;
-    width: 43%;
-    margin: 2.5% 0 0 1%;
-    text-align: center;
-}
-
-.container-6-1{
-    padding: 2.5% 0 2.5% 0;
-}
-
 .pre-d{
     float: left;
     width: 19%;
@@ -201,17 +242,26 @@ input{
     float: left;
 }
 
-.sub-container-6-1{
+.sub-sub-container-5-3{
     margin-top: 4%;
 }
 
-.container-6-2{
+.container-6{
+    float: left;
+    width: 20%;
+    text-align: center;
+
+    background-color: green;
+}
+
+.container-6-1{
     margin-top: 2.5%;
     overflow: hidden;
     text-align: center;
+    margin: 0 1.5% 0 1.5%;
 }
 
-.sub-container-6-2{
+.sub-container-6-1{
     width: 80%;
     margin: auto;
 }
@@ -219,26 +269,131 @@ input{
 .title-death{
     float: left;
     width: 50%;
+    margin-left: 8%;
 }
 
 .check-death{
-    margin-top: 10%;
+    margin-top: 6%;
     float: left;
 }
 
-.sub-container-6-a{
+.container-6-2{
+    float: left;
+    margin: 2.5% 1.5% 0 1.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container-7{
+    width: 26%;
+    float: left;
+    margin: 0 1.5% 0 0.6%;
+    text-align: center;
+    background-color: beige;
+}
+
+.section-2{
+    margin-top: 2.5%;
+    background-color: red;
+    overflow: hidden;
+}
+
+.other-prof{
+    width: 90%;
+    margin-top: 5%;
+}
+
+.section-3{
+    width: 100%;
+    margin-top: 2.5%; 
+    overflow: hidden;
+    background-color: chartreuse;
+}
+
+.container-8{
+    width: 46%;
+    float: left;
+    text-align: center;
+    margin: 0 1.5% 0 1.5%;
+
+    background-color: aqua;
+}
+
+.sub-container-8{
     float: left;
     width: 50%;
 }
 
-.sub-container-6-b{
+.skill-div{
+    margin: 3% 1% 0 1%;
+}
+
+.check-skill{
+    width: 10%;
     float: left;
-    width: 45%;
-    margin: 0 1.5% 0 1.5%;
-    padding-top: 6%;
-    padding-bottom: 5%;
+    margin-top: 2.5%;
+}
+
+.skill-input{
+    width: 15%;
+    float: left;
+}
+
+.skill-p{
+    width: 65%;
+    float: left;
+    margin-top: 2.5%;
+}
+
+.container-9{
+    width: 47%;
+    float: left;
     text-align: center;
-    overflow: hidden;
+    margin: 0 1.5% 0 1.5%;
+
+    background-color: crimson;
+}
+
+.sub-container-9-1{
+    width: 40%;
+    float: left;
+}
+
+.sub-container-9-2{
+    width: 12%;
+    float: left;
+}
+
+.sub-container-9-3{
+    width: 12%;
+    float: left;
+}
+
+.sub-container-9-4{
+    width: 12%;
+    float: left;
+}
+
+.sub-container-9-5{
+    width: 12%;
+    float: left;
+}
+
+.sub-container-9-6{
+    width: 12%;
+    float: left;
+}
+
+.equip-input-name{
+    width: 85%;
+    margin-top: 2.5%;
+}
+
+.equip-input{
+    width: 60%;
+    margin-top: 8%;
 }
 
 .clearfix{
@@ -270,6 +425,9 @@ input{
     }
     .atrib-container{
         width: 31.333333%;
+    }
+    .table{
+        display: block;
     }
 }
 
