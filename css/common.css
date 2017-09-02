@@ -396,10 +396,61 @@ input{
     margin-top: 8%;
 }
 
+.section-4{
+    width: 100%;
+    text-align: center;
+    margin: 2.5% 0 0 0;
+    background-color: darkgreen;
+
+    overflow: hidden;
+}
+
+.container-10{
+    width: 46%;
+    float: left;
+    margin: 0 1.5% 0 1.5%;
+
+    background-color: darksalmon;
+}
+
+.sub-container-10-11{
+    width: 50%;
+    float: left;
+}
+
+.trait-inv-input{
+    width: 80%;
+    margin-top: 2.5%;
+}
+
+.container-11{
+    width: 47%;
+    float: left;
+    margin: 0 1.5% 0 1.5%;
+
+    background-color: deeppink;
+}
+
+.inv-div{
+    width: 80%;
+    margin-top: 2.5%;
+}
+
+.inv-div-p{
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+    margin-top: 2.5%;
+}
+
+.inv-input{
+    width: 52%;
+    float: left;
+}
+
 .clearfix{
     clear: both;
 }
-
 
 @media screen and (max-width: 640px){
     html,body{
