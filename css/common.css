@@ -10,7 +10,7 @@ html,body{
 }
 
 html{
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -95,12 +95,16 @@ input{
 
 .container-3{
     width: 95%;
-    padding: 2.5% 1% 1.5% 1%;
+    padding: 1% 1% 1.5% 1%;
     margin: 2.5% auto 0 auto;
     text-align: center;
     overflow: hidden;
-
 }
+
+.atrib-labels{
+    padding: 2.5% 0;
+}
+
 .container-4{
     width: 20%;
     margin: 0 0 0 1.5%;
@@ -192,6 +196,7 @@ input{
     width: 94%;
     margin: 2.5% 2.5% 0 2.5%;
     height: 11%;
+    overflow: hidden;
 }
 
 .passive-input{
@@ -312,8 +317,8 @@ input{
 
 .section-3{
     width: 100%;
-    margin-top: 2.5%; 
     overflow: hidden;
+    margin-top: 2.5%;
 }
 
 .container-8{
@@ -321,7 +326,6 @@ input{
     float: left;
     text-align: center;
     margin: 0 1.5% 0 1.5%;
-
 }
 
 .sub-container-8{
@@ -450,28 +454,155 @@ input{
     clear: both;
 }
 
+@media screen and (max-width: 960px){
+    .container-7{
+        flex: 0;
+        align-items: unset;
+    }
+
+    .DD-sub{
+        width: 95%;
+    }
+
+    .section-3{
+        margin-top: 0;
+    }
+
+    .clearfix-toggle-960{
+        clear: both;
+    }
+
+    .break-table-960{
+        display: block;
+    }
+
+    .container-4{
+        width:  31.333333%;
+        margin: 0 0 0 1.5%;
+    }
+
+    .container-5{
+        width:  31.333333%;
+        margin: 0 1.5% 0 1.5%;
+    }
+
+    .container-6{
+        width:  31.333333%;
+        margin: 0 1.5% 0 0;
+    }
+
+    .container-7{
+        width: 96%;
+        float: none;
+        margin: 2.5% auto;
+    }
+
+    .container-7-split{
+        float: left;
+        margin: 1.5% 2.5% 0 2.5%;
+        width: 45%;
+    }
+
+    .other-prof{
+        margin: 1%;
+    }
+
+    .container-8{
+        width: 96%;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .container-9{
+        width: 96%;
+        margin: 2.5% auto 0 auto;
+        float: none
+    }
+
+    .container-10{
+        width: 96%;
+        margin: 0 auto;
+        float: none;
+    }
+
+    .container-11{
+        width: 96%;
+        margin: 2.5% auto;
+        float: none;
+    }
+}
+
 @media screen and (max-width: 640px){
     html,body{
         width: 640px;
     }
+
+    html{
+        border: none;
+    }
     .container-1{
-        width: 90%;
+        width: 95%;
         float: none;
         margin: 0 auto 5% auto;
         margin-bottom: 5%;
     }
     .container-2{
         margin: 0 auto 5% auto;
-        width: 90%;
+        width: 95%;
         float: none;
     }
     .container-3{
-        width: 90%;
+        width: 95%;
         margin: 0 auto;
     }
-    .clearfix-toggle{
+
+    .clearfix-toggle-960{
+        clear: none;
+    }
+
+    .clearfix-toggle-640{
         clear: both;
     }
+
+    .check-death{
+        margin-top: 9%;
+    }
+
+    .container-4{
+        margin: 0 0 0 2.5%;
+        width: 46.25%;
+    }
+
+    .container-5{
+        margin: 0 2.5% 0 2.5%;
+        width: 46.25%;
+    }
+
+    .container-6{
+        margin: 2.5% 0 0 2.5%;
+        width: 30%;
+    }
+
+    .container-7{
+        float: left;
+        margin: 2.5% 2.5% 0 2.5%;
+        width: 61%;
+    }
+
+    .other-prof{
+        margin-top: 2%;
+    }
+
+    .section-3{
+        margin-top: 2.5%;
+    }
+
+    .container-7-split{
+        width: 95%;
+        margin: 0 auto;
+        float: none;
+    }
+
     .atrib-container{
         width: 31.333333%;
     }
