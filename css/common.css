@@ -6,7 +6,12 @@
 html,body{
     max-width: 1280px;
     min-width: 640px;
-    margin: 20px auto 20px auto;
+    margin: 20px auto 20px auto;   
+}
+body{
+    background-color: #EAE28B;
+    text-shadow: 0px 1px black;
+    color:black;
 }
 
 html{
@@ -34,6 +39,9 @@ input[type="number"] {
 
 input{
     text-align: center;
+    background-color: #FFFEAA;
+    color: #000000;
+    font-weight: bold;
 }
 
 .border{
