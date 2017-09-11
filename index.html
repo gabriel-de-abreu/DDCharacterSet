@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D&D Character Sheet</title>
     <link rel="stylesheet" href="css/common.css">
@@ -11,273 +11,273 @@
 
 <body>
     <div class="table">
-    <!-- Nome e level -->
-    <div class="container-1 border row">
-        <h1 class="DD-font">Dungeons & Dragons</h1>
-        <div class="DD-sub">
-            <div class="labels">Name: </div>
-            <input class="inputs" type="text" name="char_name">
+        <!-- Nome e level -->
+        <div class="container-1 border row">
+            <h1 class="DD-font">Dungeons & Dragons</h1>
+            <div class="DD-sub">
+                <div class="labels">Name: </div>
+                <input class="inputs" type="text" name="char_name">
+            </div>
+            <div class="clearfix"></div>
+            <div class="DD-sub">
+                <div class="labels">Level: </div>
+                <input class="inputs" type="number" name="char_level">
+            </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="DD-sub">
-            <div class="labels">Level: </div>
-            <input class="inputs" type="number" name="char_level">
-        </div>
-    </div>
-    <div class="clearfix-toggle-640"></div>
+        <div class="clearfix-toggle-640"></div>
 
-    <!-- Dados do personagem -->
-    <div class="container-2 border row">
-        <div class="sub-container">
-            <input class="input-field" type="text" name="race_class">
-            <p>Race & Class</p>
-            <input class="input-field" type="text" name="exp">
-            <p>Experience Points</p>
-        </div>
-        <div class="sub-container">
-            <input class="input-field" type="text" name="background">
-            <p>Background</p>
-            <input class="input-field" type="text" name="alignment">
-            <p>Alignment</p>
-        </div>
-        <div class="sub-container">
-            <input class="input-field" type="text" name="player_name">
-            <p>Player Name</p>
-            <input class="input-field" type="text" name="adventure-group">
-            <p>Adventuring Ground</p>
+        <!-- Dados do personagem -->
+        <div class="container-2 border row">
+            <div class="sub-container">
+                <input class="input-field" type="text" name="race_class">
+                <p>Race & Class</p>
+                <input class="input-field" type="text" name="exp">
+                <p>Experience Points</p>
+            </div>
+            <div class="sub-container">
+                <input class="input-field" type="text" name="background">
+                <p>Background</p>
+                <input class="input-field" type="text" name="alignment">
+                <p>Alignment</p>
+            </div>
+            <div class="sub-container">
+                <input class="input-field" type="text" name="player_name">
+                <p>Player Name</p>
+                <input class="input-field" type="text" name="adventure-group">
+                <p>Adventuring Ground</p>
+            </div>
         </div>
     </div>
-</div>
     <div class="clearfix"></div>
     <!-- Atributos -->
     <div class="container-3 border">
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="str">
+            <input class="input-field big-input" type="text" name="str">
             <p>Strenght</p>
         </div>
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="dex">
+            <input class="input-field big-input" type="text" name="dex">
             <p>Dexterity</p>
         </div>
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="con">
+            <input class="input-field big-input" type="text" name="con">
             <p>Constitution</p>
         </div>
         <div class="clearfix-toggle-640"></div>
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="int">
+            <input class="input-field big-input" type="text" name="int">
             <p>Intelligence</p>
         </div>
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="wis">
+            <input class="input-field big-input" type="text" name="wis">
             <p>Wisdom</p>
         </div>
         <div class="atrib-container">
             <p class="border atrib-labels">loren</p>
-            <input class="input-field" type="text" name="char">
+            <input class="input-field big-input" type="text" name="char">
             <p>Charisma</p>
         </div>
     </div>
     <!-- Inspiração e saving throws -->
     <div class="section-2 table break-table-960">
-    <div class="container-4 row">
-        <div class="sub-container4-1 border ">
-            <input class="input-field" type="text" name="inspi">
-            <p>Inspiration</p>
-            <input class="input-field" type="text" name="profbonus">
-            <p>Profiency Bonus</p>
-        </div>
-        <div class="sub-container4-2 border">
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-str">
-                </div>
-                <div class="label-throws">
-                    Strenght
-                </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="str-sav">
-                </div>
+        <div class="container-4 row">
+            <div class="sub-container4-1 border ">
+                <input class="input-field" type="text" name="inspi">
+                <p>Inspiration</p>
+                <input class="input-field" type="text" name="profbonus">
+                <p>Profiency Bonus</p>
             </div>
-            <div class="clearfix"></div>
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-dex">
+            <div class="sub-container4-2 border">
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-str">
+                    </div>
+                    <div class="label-throws">
+                        Strenght
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="str-sav">
+                    </div>
                 </div>
-                <div class="label-throws">
-                    Dextery
+                <div class="clearfix"></div>
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-dex">
+                    </div>
+                    <div class="label-throws">
+                        Dextery
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="dex-sav">
+                    </div>
                 </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="dex-sav">
+                <div class="clearfix"></div>
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-con">
+                    </div>
+                    <div class="label-throws">
+                        Constitution
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="con-sav">
+                    </div>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-con">
+                <div class="clearfix"></div>
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-int">
+                    </div>
+                    <div class="label-throws">
+                        Intelligence
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="int-sav">
+                    </div>
                 </div>
-                <div class="label-throws">
-                    Constitution
+                <div class="clearfix"></div>
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-wis">
+                    </div>
+                    <div class="label-throws">
+                        Wisdom
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="wis-sav">
+                    </div>
                 </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="con-sav">
+                <div class="clearfix"></div>
+                <div class="sub-throws">
+                    <div class="check-throws">
+                        <input type="checkbox" name="check-char">
+                    </div>
+                    <div class="label-throws">
+                        Charisma
+                    </div>
+                    <div class="input-throws">
+                        <input class="input-throws-field" type="text" name="char-sav">
+                    </div>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-int">
-                </div>
-                <div class="label-throws">
-                    Intelligence
-                </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="int-sav">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-wis">
-                </div>
-                <div class="label-throws">
-                    Wisdom
-                </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="wis-sav">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="sub-throws">
-                <div class="check-throws">
-                    <input type="checkbox" name="check-char">
-                </div>
-                <div class="label-throws">
-                    Charisma
-                </div>
-                <div class="input-throws">
-                    <input class="input-throws-field" type="text" name="char-sav">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <p class="title">Saving throws</p>
-        </div>
-    </div>
-    <!-- HP -->
-    <div class="container-5 row">
-        <div class="sub-container-5-1">
-            <div class="armor-div border">
-                <input class="sub-cont-5-input" type="number" name="armor_class">
-                <p>
-                    Armor<br>Class
-                </p>
-            </div>
-            <div class="maxhp-div border">
-                <input class="sub-cont-5-input" type="number" name="max_hp">
-                <p>
-                    Max<br>HP
-                </p>
-            </div>
-            <div class="temphp-div border">
-                <input class="sub-cont-5-input" type="number" name="temp_hp">
-                <p>
-                    Temp<br>HP
-                </p>
+                <div class="clearfix"></div>
+                <p class="title">Saving throws</p>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="sub-container-5-2 border">
-            <input class="big-input" type="number" name="current_hp"> Current HP
-        </div>
-        <div class="clearfix"></div>
-        <div class="sub-container-5-3 border">
-            <div class="sub-sub-container-5-3">
-                <input class="pre-d" type="number" name="pre_d6">
-                <p class="d-title">d6</p>
-                <input class="pos-d" type="number" name="pos_d6">
+        <!-- HP -->
+        <div class="container-5 row">
+            <div class="sub-container-5-1">
+                <div class="armor-div border">
+                    <input class="sub-cont-5-input" type="number" name="armor_class">
+                    <p>
+                        Armor<br>Class
+                    </p>
+                </div>
+                <div class="maxhp-div border">
+                    <input class="sub-cont-5-input" type="number" name="max_hp">
+                    <p>
+                        Max<br>HP
+                    </p>
+                </div>
+                <div class="temphp-div border">
+                    <input class="sub-cont-5-input" type="number" name="temp_hp">
+                    <p>
+                        Temp<br>HP
+                    </p>
+                </div>
             </div>
             <div class="clearfix"></div>
-            <div class="sub-sub-container-5-3">
-                <input class="pre-d" type="number" name="pre_d8">
-                <p class="d-title">d8</p>
-                <input class="pos-d" type="number" name="pos_d8">
+            <div class="sub-container-5-2 border">
+                <input class="big-input" type="number" name="current_hp"> Current HP
             </div>
             <div class="clearfix"></div>
-            <div class="sub-sub-container-5-3">
-                <input class="pre-d" type="number" name="pre_d10">
-                <p class="d-title">d10</p>
-                <input class="pos-d" type="number" name="pos_d10">
+            <div class="sub-container-5-3 border">
+                <div class="sub-sub-container-5-3">
+                    <input class="pre-d" type="number" name="pre_d6">
+                    <p class="d-title">d6</p>
+                    <input class="pos-d" type="number" name="pos_d6">
+                </div>
+                <div class="clearfix"></div>
+                <div class="sub-sub-container-5-3">
+                    <input class="pre-d" type="number" name="pre_d8">
+                    <p class="d-title">d8</p>
+                    <input class="pos-d" type="number" name="pos_d8">
+                </div>
+                <div class="clearfix"></div>
+                <div class="sub-sub-container-5-3">
+                    <input class="pre-d" type="number" name="pre_d10">
+                    <p class="d-title">d10</p>
+                    <input class="pos-d" type="number" name="pos_d10">
+                </div>
+                <div class="clearfix"></div>
+                <div class="sub-sub-container-5-3">
+                    <input class="pre-d" type="number" name="pre_d12">
+                    <p class="d-title">d12</p>
+                    <input class="pos-d" type="number" name="pos_d12">
+                </div>
+                <div class="clearfix"></div>
+                <p class="title">Hit Dice</p>
             </div>
             <div class="clearfix"></div>
-            <div class="sub-sub-container-5-3">
-                <input class="pre-d" type="number" name="pre_d12">
-                <p class="d-title">d12</p>
-                <input class="pos-d" type="number" name="pos_d12">
+            <div class="sub-container-5-4 border">
+                <input class="passive-input" type="number" name="passive-perc">
+                <p class="passive-p">Passive Perception</p>
             </div>
-            <div class="clearfix"></div>
-            <p class="title">Hit Dice</p>
-        </div>
-        <div class="clearfix"></div>
-        <div class="sub-container-5-4 border">
-            <input class="passive-input" type="number" name="passive-perc">
-            <p class="passive-p">Passive Perception</p>
-        </div>
-    </div>
-    <div class="clearfix-toggle-640"></div>
-    <div class="container-6 row">
-        <div class="container-6-1 border">
-            <div class="sub-container-6-2">
-                <p class="title-death">Successes</p>
-                <input class="check-death" type="checkbox" name="succ-1">
-                <input class="check-death" type="checkbox" name="succ-2">
-                <input class="check-death" type="checkbox" name="succ-3">
-            </div>
-            <div class="clearfix"></div>
-            <div class="sub-container-6-2">
-                <p class="title-death">Failures</p>
-                <input class="check-death" type="checkbox" name="fail-1">
-                <input class="check-death" type="checkbox" name="fail-2">
-                <input class="check-death" type="checkbox" name="fail-3">
-            </div>
-            <div class="clearfix"></div>
-            <p class="title">Death Saves</p>
-        </div>
-
-        <div class="container-6-2 border">
-            <input class="big-input" type="text" name="initiative">
-            <p>Initiative</p>
-            <input class="big-input" type="text" name="speed">
-            <p>Speed</p>
-            <input class="big-input" type="text" name="vision">
-            <p>Vision</p>
-        </div>
-    </div>
-    <div class="clearfix-toggle-960"></div>
-    <div class="container-7 border row">
-        <div class="container-7-split">
-            <input class="other-prof" type="text" name="other_1">
-            <input class="other-prof" type="text" name="other_2">
-            <input class="other-prof" type="text" name="other_3">
-            <input class="other-prof" type="text" name="other_4">
-            <input class="other-prof" type="text" name="other_5">
         </div>
         <div class="clearfix-toggle-640"></div>
-        <div class="container-7-split">
-            <input class="other-prof" type="text" name="other_6">
-            <input class="other-prof" type="text" name="other_7">
-            <input class="other-prof" type="text" name="other_8">
-            <input class="other-prof" type="text" name="other_9">
-            <input class="other-prof" type="text" name="other_10">
+        <div class="container-6 row">
+            <div class="container-6-1 border">
+                <div class="sub-container-6-2">
+                    <p class="title-death">Successes</p>
+                    <input class="check-death" type="checkbox" name="succ-1">
+                    <input class="check-death" type="checkbox" name="succ-2">
+                    <input class="check-death" type="checkbox" name="succ-3">
+                </div>
+                <div class="clearfix"></div>
+                <div class="sub-container-6-2">
+                    <p class="title-death">Failures</p>
+                    <input class="check-death" type="checkbox" name="fail-1">
+                    <input class="check-death" type="checkbox" name="fail-2">
+                    <input class="check-death" type="checkbox" name="fail-3">
+                </div>
+                <div class="clearfix"></div>
+                <p class="title">Death Saves</p>
+            </div>
+
+            <div class="container-6-2 border">
+                <input class="big-input" type="text" name="initiative">
+                <p>Initiative</p>
+                <input class="big-input" type="text" name="speed">
+                <p>Speed</p>
+                <input class="big-input" type="text" name="vision">
+                <p>Vision</p>
+            </div>
         </div>
-        <div class="clearfix"></div>
-        <p>Other Profiencies <br> & <br> Languages</p>
-    </div>
-    <div class="clearfix clearfix-disable-960"></div>
+        <div class="clearfix-toggle-960"></div>
+        <div class="container-7 border row">
+            <div class="container-7-split">
+                <input class="other-prof" type="text" name="other_1">
+                <input class="other-prof" type="text" name="other_2">
+                <input class="other-prof" type="text" name="other_3">
+                <input class="other-prof" type="text" name="other_4">
+                <input class="other-prof" type="text" name="other_5">
+            </div>
+            <div class="clearfix-toggle-640"></div>
+            <div class="container-7-split">
+                <input class="other-prof" type="text" name="other_6">
+                <input class="other-prof" type="text" name="other_7">
+                <input class="other-prof" type="text" name="other_8">
+                <input class="other-prof" type="text" name="other_9">
+                <input class="other-prof" type="text" name="other_10">
+            </div>
+            <div class="clearfix"></div>
+            <p>Other Profiencies <br> & <br> Languages</p>
+        </div>
+        <div class="clearfix clearfix-disable-960"></div>
     </div>
     <!--section 3-->
     <div class="section-3 table break-table-960">
@@ -511,7 +511,7 @@
                     <input class="inv-input" type="number" name="inv-div-p">
                 </div>
                 <div class="clearfix"></div>
-                
+
                 <input class="trait-inv-input" type="text" name="inv-1">
                 <input class="trait-inv-input" type="text" name="inv-2">
                 <input class="trait-inv-input" type="text" name="inv-3">

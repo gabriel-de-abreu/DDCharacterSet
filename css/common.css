@@ -3,18 +3,20 @@
     src: url("../font/DUNGRG.TTF");
 }
 
-html,body{
+html,
+body {
     max-width: 1280px;
     min-width: 640px;
-    margin: 20px auto 20px auto;   
-}
-body{
-    background-color: #EAE28B;
-    text-shadow: 0px 1px black;
-    color:black;
+    margin: 20px auto 20px auto;
 }
 
-html{
+body {
+    background-color: #EAE28B;
+    text-shadow: 0px 1px black;
+    color: black;
+}
+
+html {
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -23,85 +25,112 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
 }
+
 input[type="number"] {
     -moz-appearance: textfield;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
 }
 
-.table{
-    display: flex;    
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
-.row{
+.table {
+    display: flex;
+}
+
+.row {
     align-items: stretch;
     flex: 1
 }
 
-input{
+
+/* input {
     text-align: center;
     background-color: #FFFEAA;
     color: #000000;
     font-weight: bold;
+} */
+
+input[type="text"] {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
 }
 
-.border{
+.border {
     border: 2px solid black;
     border-radius: 5px;
 }
 
-.container-1{
+.container-1 {
     text-align: center;
     width: 34%;
     float: left;
     margin: 0 1.5% 0 1.5%;
-    padding: 0 1% 2.5% 1%;
+    padding: 0 1% 5px 1%;
     overflow: hidden;
 }
 
-.DD-font{
+.DD-font {
     font-family: DUNG;
     font-size: 3em;
 }
 
-.labels{
+.labels {
     width: 15%;
     margin-top: 1%;
     float: left;
 }
 
-.inputs{
+.inputs {
     width: 80%;
     float: left;
 }
 
-.DD-sub{
-     width: 80%;
-     margin: 0 auto;
-     overflow: hidden;
+.DD-sub {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1%;
+    overflow: hidden;
 }
 
-.input-field{
+.input-field {
     width: 80%;
 }
 
-.container-2{
+.container-2 {
     width: 55%;
     float: left;
     text-align: center;
     padding: 2.5% 1% 1.5% 1%;
     margin: 0 1.5% 0 1.5%;
     overflow: hidden;
-
 }
 
-.sub-container{
+.sub-container {
     float: left;
     text-align: center;
     width: 33.3333333333%;
     margin-top: 2.5%;
 }
 
-.container-3{
+.container-3 {
     width: 95%;
     padding: 1% 1% 1.5% 1%;
     margin: 2.5% auto 0 auto;
@@ -109,79 +138,78 @@ input{
     overflow: hidden;
 }
 
-.atrib-labels{
+.atrib-labels {
     padding: 2.5% 0;
 }
 
-.container-4{
+.container-4 {
     width: 20%;
     margin: 0 0 0 1.5%;
     text-align: center;
     float: left;
-
-}
-.sub-container4-1{
-    padding-top: 5%;  
 }
 
-.sub-container4-2{
+.sub-container4-1 {
+    padding-top: 5%;
+}
+
+.sub-container4-2 {
     text-align: center;
     margin-top: 2%;
     padding-bottom: 4%;
     overflow: hidden;
 }
 
-.title{
+.title {
     font-weight: bold;
 }
 
-.sub-throws{
+.sub-throws {
     padding-top: 5%;
 }
 
-.check-throws{
+.check-throws {
     float: left;
     width: 25%;
     text-align: right;
     padding-top: 1%;
 }
 
-.label-throws{
+.label-throws {
     float: left;
     width: 40%;
     margin: 2.5% 0 0 2.5%;
 }
 
-.input-throws{
+.input-throws {
     float: left;
     width: 30%;
     margin: 0 2.5% 0 0;
 }
 
-.input-throws-field{
+.input-throws-field {
     width: 50%;
 }
 
-.atrib-container{
+.atrib-container {
     width: 14.666666666666%;
     float: left;
     margin: 0 1%;
 }
 
-.container-5{
+.container-5 {
     width: 30%;
-    text-align: center;  
-    float: left;  
-
+    text-align: center;
+    float: left;
 }
 
-.sub-container-5-1{
+.sub-container-5-1 {
     width: 95%;
     margin: 0 2.5% 0 2.5%;
     height: 15%;
 }
 
-.sub-container-5-2{
+.sub-container-5-2 {
     width: 94%;
     margin: 2.5% 2.5% 0 2.5%;
     padding-top: 2.5%;
@@ -189,115 +217,114 @@ input{
     height: 15%;
 }
 
-.sub-container-5-3{
+.sub-container-5-3 {
     width: 94%;
     margin: 2.5% 2.5% 0 2.5%;
     height: 43%;
     overflow: hidden;
 }
 
-.sub-cont-5-input{
+.sub-cont-5-input {
     width: 60%;
 }
 
-.sub-container-5-4{
+.sub-container-5-4 {
     width: 94%;
     margin: 2.5% 2.5% 0 2.5%;
     height: 11%;
     overflow: hidden;
 }
 
-.passive-input{
+.passive-input {
     width: 20%;
     float: left;
     margin-top: 4%;
     margin-left: 8%;
 }
 
-.passive-p{
+.passive-p {
     width: 60%;
     float: left;
     margin-top: 6%;
 }
 
-.armor-div{
+.armor-div {
     width: 30%;
     margin: 0 2.5% 0 0;
-    padding-top: 2.5%;  
+    padding-top: 2.5%;
     float: left;
 }
 
-.maxhp-div{
-    width: 30%;  
+.maxhp-div {
+    width: 30%;
     float: left;
     padding-top: 2.5%;
 }
 
-.temphp-div{
+.temphp-div {
     width: 30%;
     margin: 0 0 0 2.5%;
-    padding-top: 2.5%; 
-    float: right;  
+    padding-top: 2.5%;
+    float: right;
 }
 
-.big-input{
+.big-input {
     font-size: 2em;
     width: 90%;
     margin-bottom: 2.5%;
 }
 
-.pre-d{
+.pre-d {
     float: left;
     width: 19%;
     margin-left: 4%;
 }
 
-.d-title{
+.d-title {
     float: left;
     margin: 2.5% auto;
     width: 19%;
 }
 
-.pos-d{
+.pos-d {
     width: 41%;
     float: left;
 }
 
-.sub-sub-container-5-3{
+.sub-sub-container-5-3 {
     margin-top: 4%;
 }
 
-.container-6{
+.container-6 {
     float: left;
     width: 20%;
     text-align: center;
-
 }
 
-.container-6-1{
+.container-6-1 {
     margin-top: 2.5%;
     overflow: hidden;
     text-align: center;
     margin: 0 1.5% 0 1.5%;
 }
 
-.sub-container-6-1{
+.sub-container-6-1 {
     width: 80%;
     margin: auto;
 }
 
-.title-death{
+.title-death {
     float: left;
     width: 50%;
     margin-left: 8%;
 }
 
-.check-death{
+.check-death {
     margin-top: 6%;
     float: left;
 }
 
-.container-6-2{
+.container-6-2 {
     float: left;
     margin: 2.5% 1.5% 0 1.5%;
     padding-top: 2%;
@@ -306,316 +333,293 @@ input{
     overflow: hidden;
 }
 
-.container-7{
+.container-7 {
     width: 26%;
     float: left;
     margin: 0 1.5% 0 0.6%;
     text-align: center;
 }
 
-.section-2{
+.section-2 {
     margin-top: 2.5%;
     overflow: hidden;
 }
 
-.other-prof{
+.other-prof {
     width: 90%;
     margin-top: 5%;
 }
 
-.section-3{
+.section-3 {
     width: 100%;
     overflow: hidden;
     margin-top: 2.5%;
 }
 
-.container-8{
+.container-8 {
     width: 46%;
     float: left;
     text-align: center;
     margin: 0 1.5% 0 1.5%;
 }
 
-.sub-container-8{
+.sub-container-8 {
     float: left;
     width: 50%;
 }
 
-.skill-div{
+.skill-div {
     margin: 3% 1% 0 1%;
 }
 
-.check-skill{
+.check-skill {
     width: 10%;
     float: left;
     margin-top: 2.5%;
 }
 
-.skill-input{
+.skill-input {
     width: 15%;
     float: left;
 }
 
-.skill-p{
+.skill-p {
     width: 65%;
     float: left;
     margin-top: 2.5%;
 }
 
-.container-9{
+.container-9 {
     width: 47%;
     float: left;
     text-align: center;
     margin: 0 1.5% 0 1.5%;
-
 }
 
-.sub-container-9-1{
+.sub-container-9-1 {
     width: 40%;
     float: left;
 }
 
-.sub-container-9-2{
+.sub-container-9-2 {
     width: 12%;
     float: left;
 }
 
-.sub-container-9-3{
+.sub-container-9-3 {
     width: 12%;
     float: left;
 }
 
-.sub-container-9-4{
+.sub-container-9-4 {
     width: 12%;
     float: left;
 }
 
-.sub-container-9-5{
+.sub-container-9-5 {
     width: 12%;
     float: left;
 }
 
-.sub-container-9-6{
+.sub-container-9-6 {
     width: 12%;
     float: left;
 }
 
-.equip-input-name{
+.equip-input-name {
     width: 85%;
-    margin-top: 2.5%;
+    margin-top: 6.5%;
 }
 
-.equip-input{
+.equip-input {
     width: 60%;
-    margin-top: 8%;
+    margin-top: 21.5%;
 }
 
-.section-4{
+.section-4 {
     width: 100%;
     text-align: center;
     margin: 2.5% 0 0 0;
-
     overflow: hidden;
 }
 
-.container-10{
+.container-10 {
     width: 46%;
     float: left;
     margin: 0 1.5% 0 1.5%;
-
 }
 
-.sub-container-10-11{
+.sub-container-10-11 {
     width: 50%;
     float: left;
 }
 
-.trait-inv-input{
+.trait-inv-input {
     width: 80%;
     margin-top: 2.5%;
 }
 
-.container-11{
+.container-11 {
     width: 47%;
     float: left;
     margin: 0 1.5% 0 1.5%;
 }
 
-.inv-div{
+.inv-div {
     width: 80%;
     margin-top: 2.5%;
 }
 
-.inv-div-p{
+.inv-div-p {
     width: 30%;
     float: left;
     margin-left: 10%;
     margin-top: 2.5%;
 }
 
-.inv-input{
+.inv-input {
     width: 52%;
     float: left;
 }
 
-.clearfix{
+.clearfix {
     clear: both;
 }
 
-@media screen and (max-width: 960px){
-    .container-7{
+@media screen and (max-width: 960px) {
+    .container-7 {
         flex: 0;
         align-items: unset;
     }
-
-    .DD-sub{
+    .DD-sub {
         width: 95%;
     }
-
-    .section-3{
+    .section-3 {
         margin-top: 0;
     }
-
-    .clearfix-toggle-960{
+    .clearfix-toggle-960 {
         clear: both;
     }
-
-    .break-table-960{
+    .break-table-960 {
         display: block;
     }
-
-    .container-4{
-        width:  31.333333%;
+    .container-4 {
+        width: 31.333333%;
         margin: 0 0 0 1.5%;
     }
-
-    .container-5{
-        width:  31.333333%;
+    .container-5 {
+        width: 31.333333%;
         margin: 0 1.5% 0 1.5%;
     }
-
-    .container-6{
-        width:  31.333333%;
+    .container-6 {
+        width: 31.333333%;
         margin: 0 1.5% 0 0;
     }
-
-    .container-7{
+    .container-7 {
         width: 96%;
         float: none;
         margin: 2.5% auto;
     }
-
-    .container-7-split{
+    .container-7-split {
         float: left;
         margin: 1.5% 2.5% 0 2.5%;
         width: 45%;
     }
-
-    .other-prof{
+    .other-prof {
         margin: 1%;
     }
-
-    .container-8{
+    .container-8 {
         width: 96%;
         float: none;
         margin: 0 auto;
     }
-
-    .container-9{
+    .container-9 {
         width: 96%;
         margin: 2.5% auto 0 auto;
         float: none
     }
-
-    .container-10{
+    .container-10 {
         width: 96%;
         margin: 0 auto;
         float: none;
     }
-
-    .container-11{
+    .container-11 {
         width: 96%;
         margin: 2.5% auto;
         float: none;
     }
+    .equip-input {
+        margin-top: 8.5%;
+    }
+    .equip-input-name {
+        margin-top: 2.5%;
+    }
 }
 
-@media screen and (max-width: 640px){
-    html,body{
+@media screen and (max-width: 640px) {
+    html,
+    body {
         width: 640px;
     }
-
-    html{
+    html {
         border: none;
     }
-    .container-1{
+    .container-1 {
         width: 95%;
         float: none;
         margin: 0 auto 5% auto;
         margin-bottom: 5%;
     }
-    .container-2{
+    .container-2 {
         margin: 0 auto 5% auto;
         width: 95%;
         float: none;
     }
-    .container-3{
+    .container-3 {
         width: 95%;
         margin: 0 auto;
     }
-
-    .clearfix-toggle-960{
+    .clearfix-toggle-960 {
         clear: none;
     }
-
-    .clearfix-toggle-640{
+    .clearfix-toggle-640 {
         clear: both;
     }
-
-    .check-death{
+    .check-death {
         margin-top: 9%;
     }
-
-    .container-4{
+    .container-4 {
         margin: 0 0 0 2.5%;
         width: 46.25%;
     }
-
-    .container-5{
+    .container-5 {
         margin: 0 2.5% 0 2.5%;
         width: 46.25%;
     }
-
-    .container-6{
+    .container-6 {
         margin: 2.5% 0 0 2.5%;
         width: 30%;
     }
-
-    .container-7{
+    .container-7 {
         float: left;
         margin: 2.5% 2.5% 0 2.5%;
         width: 61%;
     }
-
-    .other-prof{
+    .other-prof {
         margin-top: 2%;
     }
-
-    .section-3{
+    .section-3 {
         margin-top: 2.5%;
     }
-
-    .container-7-split{
+    .container-7-split {
         width: 95%;
         margin: 0 auto;
         float: none;
     }
-
-    .atrib-container{
+    .atrib-container {
         width: 31.333333%;
     }
-    .table{
+    .table {
         display: block;
     }
 }
-
