@@ -7,21 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D&D Character Sheet</title>
     <link rel="stylesheet" href="css/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="./js/char.js"></script>
+  
 </head>
 
 <body>
+    <button onclick="Send();return 0;">Teste</button>
     <div class="table">
         <!-- Nome e level -->
         <div class="container-1 border row">
             <img class="DD-logo" src="img/dndlogo3.png">
             <div class="DD-sub">
                 <div class="labels">Name: </div>
-                <input class="inputs" type="text" name="char_name">
+                <input id="name" class="inputs" type="text" name="char_name">
             </div>
             <div class="clearfix"></div>
             <div class="DD-sub">
                 <div class="labels">Level: </div>
-                <input class="inputs" type="number" name="char_level">
+                <input id="level" class="inputs" type="number" name="char_level">
             </div>
         </div>
         <div class="clearfix-toggle-640"></div>
@@ -29,7 +33,7 @@
         <!-- Dados do personagem -->
         <div class="container-2 border row">
             <div class="sub-container">
-                <input class="input-field" type="text" name="race_class">
+                <input  class="input-field" type="text" name="race_class">
                 <p>Race & Class</p>
                 <input class="input-field" type="text" name="exp">
                 <p>Experience Points</p>
@@ -43,7 +47,7 @@
             <div class="sub-container">
                 <input class="input-field" type="text" name="player_name">
                 <p>Player Name</p>
-                <input class="input-field" type="text" name="adventure-group">
+                <input class="input-field" type="text" name="adventure-ground">
                 <p>Adventuring Ground</p>
             </div>
         </div>
