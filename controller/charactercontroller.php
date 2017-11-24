@@ -25,6 +25,6 @@
     echo "\n";
     echo $_POST["wisdom"];
     echo "\n";
-    echo $_POST["charisma"];
+    echo $_POST["profandlang"];
 
 ?>
