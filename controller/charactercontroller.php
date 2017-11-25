@@ -17,14 +17,16 @@
     echo "\n";
     echo $_POST["strength"];
     echo "\n";
-    echo $_POST["dexterity"];
+    echo $_POST["iC"];
     echo "\n";
-    echo $_POST["constitution"];
+    echo $_POST["iS"];
     echo "\n";
-    echo $_POST["intelligence"];
+    echo $_POST["iE"];
     echo "\n";
-    echo $_POST["wisdom"];
+    echo $_POST["iG"];
     echo "\n";
-    echo $_POST["profandlang"];
+    echo $_POST["iP"];
+    echo "\n";
+    echo $_POST["attsandspell"];
 
 ?>

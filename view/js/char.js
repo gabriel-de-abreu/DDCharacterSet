@@ -1,13 +1,21 @@
 function gbn (name){
     return document.getElementsByName(name)[0].value;
 }
-function gbcac(classname){
-    var message="";
-    var inputs= document.getElementsByClassName(classname);
-    for(i=0;i<inputs.length;i++){
-        message+=(inputs[i].value +"|sep|");
+function gbcac(classname, size){
+    var message="";    
+    for(i=1;i<=size;i++){
+        message+=(gbn(classname+i) +"|sep|");
     }
     return message;
+}
+function gattacks(size){
+    var line="";
+    for(i=1;i<=size;i++){
+        line+= gbn("equip-name-"+i)+"|sepC|"+gbn("equip-atk-"+i)
+        +"|sepC|"+gbn("equip-dam-"+i)+"|sepC|"+gbn("equip-range-"+i)+
+        "|sepC|"+gbn("equip-ammo-"+i)+"|sepC|"+gbn("equip-used-"+i)+"|sepL|";
+    }
+    return line;
 }
 function Send(){
     $.post("../controller/charactercontroller.php",
@@ -41,7 +49,7 @@ function Send(){
         speed: gbn("speed"),
         vision: gbn("vision"),
         //Next
-        profandlang: gbcac("other-prof"),
+        profandlang: gbcac("other_",10),
         //skills
         acrobatics: gbn("input-acro"),
         animalhand: gbn("input-ah"),
@@ -60,7 +68,18 @@ function Send(){
         religion: gbn("input-rel"),
         sleiofhand: gbn("input-soh"),
         stealth: gbn("input-steal"),
-        survival:gbn("input-surv")
+        survival:gbn("input-surv"),
+        //attacks and spellcasting
+        attsandspell:gattacks(9),
+        //features and traits
+        featandtraits: gbcac("trait-",18),
+        //Inventory and equipment
+        iC: gbn("inv-div-c"),
+        iS: gbn("inv-div-s"),
+        iE: gbn("inv-div-e"),
+        iG: gbn("inv-div-g"),
+        iP: gbn("inv-div-p"),
+        iextra:gbcac("inv-",13)
     },
     function(data, status){
         alert(data);
