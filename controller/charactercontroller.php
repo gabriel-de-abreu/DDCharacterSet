@@ -38,5 +38,23 @@
     $objChar->history=$_POST["history"];
     $objChar->insight=$_POST["intimidation"];
     $objChar->intimidation=$_POST["investigation"];
-    $objChar->investigasfdsada=$_POST["investigation"];
+    $objChar->investigation=$_POST["investigation"];
+    $objChar->medicine=$_POST["medicine"];
+    $objChar->nature=$_POST["nature"];
+    $objChar->perception=["perception"];
+    $objChar->religion=$_POST["religion"];
+    $objChar->sleiofhand=$_POST["sleiofhand"];
+    $objChar->stealth=$_POST["stealth"];
+    $objChar->survival=$_POST["survival"];
+    
+    //Attacks and spell casting
+
+    //Features and traits
+
+    //Inventory and equipment
+    $objChar->iC=$_POST["iC"];
+    $objChar->iS=$_POST["iS"];
+    $objChar->iE=$_POST["iE"];
+    $objChar->iG=$_POST["iG"];
+    $objChar->iP=$_POST["iP"];
 ?>
