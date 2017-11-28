@@ -1,4 +1,5 @@
 <?php
+    include("AeS.php");
    class Character{
        //Basic information
         public $name;
@@ -78,17 +79,45 @@
         }
 
         function explodeProfAndLang(){
-            $this->explodeGen($this->profandlang);
+            $this->profandlang=$this->explodeGen($this->profandlang);
 
         }
         function explodeAttAndSpell(){
-
+            $arrayAttacks=array();
+            $attsandspell=explode("|sepL|",$this->attsandspell);
+           // print_r($attsandspell);
+            for($i=0;$i<count($attsandspell)-1;$i++){
+               $tempitems=explode("|sepC|",$attsandspell[$i]);
+            //   print_r($tempitems);
+                $objaux= new AeS();
+                $objaux->name=$tempitems[0];
+                $objaux->attack=$tempitems[1];
+                $objaux->damage=$tempitems[2];
+                $objaux->range=$tempitems[3];
+                $objaux->ammo=$tempitems[4];
+                $objaux->used=$tempitems[5];
+                array_push($arrayAttacks,$objaux);                
+            }
+           // print_r($arrayAttacks);
+            $this->attsandspell=$arrayAttacks;
         }
         function explodeFeatsAndTraits(){
-            $this->explodeGen($this->featandtraits);
+            $this->featandtraits=$this->explodeGen($this->featandtraits);
         }
         function explodeInvetoryAndEquips(){
-            $this->explodeGen($this->iextra);
+            $this->iextra=$this->explodeGen($this->iextra);
+        }
+        function addChar(){
+            echo "Adicionando character";
+        }
+        function updateChar(){
+            echo "Atualizando Character";
+        }
+        function removeChar(){
+            echo "Removendo Character";
+        }
+        function getChar(){
+            echo "Buscando Character";
         }
     }
 ?>

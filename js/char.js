@@ -21,6 +21,7 @@ function Send(){
     $.post("../controller/charactercontroller.php",
     {
         //Dados do personagem
+        controllertag: 0,
         name: gbn("char_name"),
         level: gbn("char_level"),
         raceclass: gbn("race_class"),
@@ -82,6 +83,6 @@ function Send(){
         iextra:gbcac("inv-",13)
     },
     function(data, status){
-        alert(data);
+        console.log(data);
     });
 }
