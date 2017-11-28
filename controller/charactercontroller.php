@@ -7,6 +7,7 @@
     $objChar->RaceClass=$_POST["raceclass"];
     $objChar->background=$_POST["background"];
     $objChar->playername=$_POST["playername"];
+    $objChar->xppoints=$_POST["xppoints"];
     $objChar->alignment=$_POST["alignment"];
     $objChar->adventuringgrd=$_POST["adventuringgrd"];
     //Atributos
@@ -28,7 +29,7 @@
     $objChar->speed=$_POST["speed"];
     $objChar->vision=$_POST["vision"];
     //next
-
+    $objChar->profandlang=$_POST["profandlang"];
     //skills
     $objChar->acrobatics=$_POST["acrobatics"];
     $objChar->animalhand=$_POST["animalhand"];
@@ -45,16 +46,17 @@
     $objChar->religion=$_POST["religion"];
     $objChar->sleiofhand=$_POST["sleiofhand"];
     $objChar->stealth=$_POST["stealth"];
-    $objChar->survival=$_POST["survival"];
-    
+    $objChar->survival=$_POST["survival"];    
     //Attacks and spell casting
-
+    $objChar->attsandspell=$_POST["attsandspell"];
     //Features and traits
-
+    $objChar->featandtraits=$_POST["featandtraits"];
     //Inventory and equipment
     $objChar->iC=$_POST["iC"];
     $objChar->iS=$_POST["iS"];
     $objChar->iE=$_POST["iE"];
     $objChar->iG=$_POST["iG"];
     $objChar->iP=$_POST["iP"];
+    $objChar->iextra=$_POST["iextra"];
+    $objChar->explodeInvetoryAndEquips();
 ?>

@@ -68,6 +68,27 @@
         public $iP;
         public $iextra;
 
+        function explodeGen($strFromPage){
+            $strFromPage=explode("|sep|",$strFromPage);
+            for($i=0; $i<count($strFromPage)-1;$i++){
+                echo $strFromPage[$i];
+                echo "\n";
+            }
+            return $strFromPage;
+        }
 
+        function explodeProfAndLang(){
+            $this->explodeGen($this->profandlang);
+
+        }
+        function explodeAttAndSpell(){
+
+        }
+        function explodeFeatsAndTraits(){
+            $this->explodeGen($this->featandtraits);
+        }
+        function explodeInvetoryAndEquips(){
+            $this->explodeGen($this->iextra);
+        }
     }
 ?>
