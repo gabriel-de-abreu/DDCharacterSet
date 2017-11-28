@@ -3,8 +3,7 @@
        //Basic information
         public $name;
         public $level;
-        public $Race;
-        public $Class;
+        public $RaceClass;
         public $background; 
         public $playername;
         public $xppoints;
