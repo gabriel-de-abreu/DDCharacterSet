@@ -8,6 +8,7 @@ function gbcac(classname, size){
     }
     return message;
 }
+
 function gattacks(size){
     var line="";
     for(i=1;i<=size;i++){
@@ -44,6 +45,7 @@ function Send(){
         svintelligence: gbn("int-sav"),
         svwisdom: gbn("wis-sav"),
         svcharisma: gbn("char-sav"),
+        svdexterity:gbn("dex-sav"),
         //Other panes
         passiveperception: gbn("passive-perc"),
         initiative: gbn("initiative"),

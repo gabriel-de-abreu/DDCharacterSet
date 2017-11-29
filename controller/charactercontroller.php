@@ -23,7 +23,10 @@
                 $objChar->charisma=$_POST["charisma"];
                 $objChar->inspiration=$_POST["inspiration"];
                 $objChar->proefiencybonus=$_POST["proefiencybonus"];
+                //SavingThrows
                 $objChar->svstrength=$_POST["svstrength"];
+                $objChar->svconstitution=$_POST["svconstitution"];
+                $objChar->svdexterity=$_POST["svdexterity"];
                 $objChar->svintelligence=$_POST["svintelligence"];
                 $objChar->svwisdom=$_POST["svwisdom"];
                 $objChar->svcharisma=$_POST["svcharisma"];
