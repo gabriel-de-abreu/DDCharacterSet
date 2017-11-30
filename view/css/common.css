@@ -41,6 +41,14 @@ button:focus {
     outline: none;
 }
 
+button{
+    background-color: #FFF9BC;
+    border: 1px solid #FFF9BC;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
+}
+
 .table {
     display: flex;
     flex-wrap: wrap;
@@ -64,7 +72,7 @@ button:focus {
     text-align: center;
 } */
 
-input[type="text"] {
+input[type="text"],input[type="password"],input[type="email"] {
     background-color: #FFF9BC;
     border: 1px solid #FFF9BC;
     border-radius: 5px;
