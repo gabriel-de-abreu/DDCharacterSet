@@ -82,6 +82,11 @@ button:active{
     animation-duration: 2s;
 }
 
+body:hover *{
+    animation-name: kapriel;
+    animation-duration: 2s;
+}
+
 .send-button{
     font-size: 2em;
     margin: 10px auto;
