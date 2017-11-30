@@ -17,13 +17,16 @@
                 //Atributos
                 $objChar->strength=$_POST["strength"];
                 $objChar->dexterity=$_POST["dexterity"];
-                $objChar->constitution=$_POST["dexterity"];
+                $objChar->constitution=$_POST["constitution"];
                 $objChar->intelligence=$_POST["intelligence"];
                 $objChar->wisdom=$_POST["wisdom"];
                 $objChar->charisma=$_POST["charisma"];
                 $objChar->inspiration=$_POST["inspiration"];
                 $objChar->proefiencybonus=$_POST["proefiencybonus"];
+                //SavingThrows
                 $objChar->svstrength=$_POST["svstrength"];
+                $objChar->svconstitution=$_POST["svconstitution"];
+                $objChar->svdexterity=$_POST["svdexterity"];
                 $objChar->svintelligence=$_POST["svintelligence"];
                 $objChar->svwisdom=$_POST["svwisdom"];
                 $objChar->svcharisma=$_POST["svcharisma"];
@@ -62,7 +65,7 @@
                 $objChar->iG=$_POST["iG"];
                 $objChar->iP=$_POST["iP"];
                 $objChar->iextra=$_POST["iextra"];
-                $objChar::addChar();
+                $objChar->addChar("fulano");
                 break;
             
             case 1:
