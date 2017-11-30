@@ -12,6 +12,7 @@ body {
     background-color: #FFF9BC; */
     background-image: url("../img/rect3338.png");
     color: black;
+    text-align: center;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -47,6 +48,11 @@ button{
     border-radius: 5px;
     box-shadow: 2px 2px 2px;
     text-align: center;
+}
+
+.send-button{
+    font-size: 2em;
+    margin: 10px auto;
 }
 
 .table {
