@@ -116,6 +116,7 @@
                 $this->insertAttributes($user,$dbh);
                 $this->insertOthers($user,$dbh);
                 $this->insertSavings($user,$dbh);
+                $this->insertSkills($user,$dbh);
                 print_r($this);
             }
             catch(PDOException $e){
@@ -217,6 +218,42 @@
                 $st->bindParam(":chari",$this->svcharisma);
                 $st->execute();
             }   
+            catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertSkills($user,$connection){
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`Skills` (`Character_nameCharacter`, 
+                `Character_User_emailUser`, `Acrobatics`, `AnimalHandling`, `Arcana`, `Athletics`, 
+                `Deception`, `History`, `Insigth`, `Intimidation`, `Investigation`, `Medicine`, 
+                `Nature`, `Perception`, `Performance`, `Persuasion`, 
+                `Religion`, `SleightofHand`, `Stealth`, `Survival`) 
+                VALUES (:charName, :userName, :acro, :animal, :arc,:ath , :dece, 
+                :his, :ins, :intimi, :invest, :med, 
+                :nat, :perc, :perf, :pers, :religion, :slei, :steal, :surv);");
+                $st->bindParam(":charName",$this->name);
+                $st->bindParam(":userName",$user);
+                $st->bindParam(":acro",$this->acrobatics);
+                $st->bindParam(":animal",$this->animalhand);
+                $st->bindParam(":arc",$this->arcana);
+                $st->bindParam(":ath",$this->athletics);
+                $st->bindParam(":dece",$this->deception);
+                $st->bindParam(":his",$this->history);
+                $st->bindParam(":ins",$this->inspiration);
+                $st->bindParam(":intimi",$this->intimidation);
+                $st->bindParam(":invest",$this->investigation);
+                $st->bindParam(":med",$this->medicine);
+                $st->bindParam(":nat",$this->nature);
+                $st->bindParam(":perc",$this->perception);
+                $st->bindParam(":perf",$this->performance);
+                $st->bindParam(":pers",$this->persuasion);
+                $st->bindParam(":religion",$this->religion);
+                $st->bindParam(":slei",$this->sleiofhand);
+                $st->bindParam(":steal",$this->stealth);
+                $st->bindParam(":surv",$this->survival);
+                $st->execute();
+            }
             catch(PDOException $e){
                 throw $e;
             }
