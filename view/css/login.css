@@ -1,0 +1,96 @@
+.login-box{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.login-form{
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 2%;
+    margin-bottom: 2%;
+
+}
+
+.border-login {
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.login-label{
+    width: 30%;
+    float: left;
+}
+
+.login-input{
+    width: 70%;
+    float: left;
+}
+
+.login-label label{
+    display: block;
+}
+
+.login-label label:first-child{
+    margin-top: 3%;
+}
+
+.login-label label:not(:first-child){
+    margin-top: 7%;
+}
+
+.login-input input{
+    width: 90%;
+    display: block;
+}
+
+.login-input input:not(:first-child){
+    margin-top: 2%;
+}
+
+.login-button{
+    display: block;
+    margin-bottom: 3%;
+}
+
+.login-button button{
+    margin-top: 3%;
+    width: 20%;
+}
+
+@media screen and (max-width: 960px) {
+    html,
+    body {
+        width: 960px;
+    }
+    html {
+        border: none;
+    }
+
+    .login-form{
+        width: 80%;
+    }
+
+    .login-box{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    html,
+    body {
+        width: 640px;
+    }
+    html {
+        border: none;
+    }
+
+    .login-form{
+        width: 95%;
+    }
+
+    .login-box{
+        width: 95%;
+    }
+}
