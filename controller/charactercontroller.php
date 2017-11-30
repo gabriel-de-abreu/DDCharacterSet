@@ -53,7 +53,9 @@
                 $objChar->investigation=$_POST["investigation"];
                 $objChar->medicine=$_POST["medicine"];
                 $objChar->nature=$_POST["nature"];
-                $objChar->perception=["perception"];
+                $objChar->perception=$_POST["perception"];
+                $objChar->performance=$_POST["performance"];
+                $objChar->persuasion=$_POST["persuasion"];
                 $objChar->religion=$_POST["religion"];
                 $objChar->sleiofhand=$_POST["sleiofhand"];
                 $objChar->stealth=$_POST["stealth"];
