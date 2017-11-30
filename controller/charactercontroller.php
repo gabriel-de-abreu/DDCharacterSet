@@ -35,6 +35,10 @@
                 $objChar->initiative=$_POST["initiative"];
                 $objChar->speed=$_POST["speed"];
                 $objChar->vision=$_POST["vision"];
+                $objChar->armorclass=$_POST["armorclass"];
+                $objChar->maxhp=$_POST["maxhp"];
+                $objChar->temphp=$_POST["temphp"];
+                $objChar->currenthp=$_POST["currenthp"];
                 //next
                 $objChar->profandlang=$_POST["profandlang"];
                 //skills
