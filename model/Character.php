@@ -107,7 +107,19 @@
         function explodeInvetoryAndEquips(){
             $this->iextra=$this->explodeGen($this->iextra);
         }
-        function addChar(){
+        function addChar($user){
+            try{
+               $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true
+                ));
+                $this->insertGeneralInfos($user,$dbh);
+                $this->insertAttributes($user,$dbh);
+                print_r($this);
+            }
+            catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();
+            }
             echo "Adicionando character";
         }
         function updateChar(){
@@ -119,5 +131,50 @@
         function getChar(){
             echo "Buscando Character";
         }
+        function insertGeneralInfos($user,$connection){
+             try{
+                $stmp=
+                $connection->prepare("INSERT INTO `ddtest`.`Character` (`nameCharacter`, `User_emailUser`, 
+                `RaceClass`, `Background`, `PlayerName`, `ExperiencePoints`, `Alignment`, 
+                `AdventureGround`) 
+                VALUES (:nameCharacter,:emailUser, :RaceClass, :Background, :PlayerName, :ExperiencePoints
+                ,:aligment, :AdventureGround);"); 
+                $stmp->bindParam(":nameCharacter",$this->name);
+                $stmp->bindParam(":emailUser",$user);
+                $stmp->bindParam(":RaceClass",$this->RaceClass);
+                $stmp->bindParam(":Background",$this->background);
+                $stmp->bindParam(":PlayerName",$this->playername);
+                $stmp->bindParam(":ExperiencePoints",$this->xppoints);
+                $stmp->bindParam(":aligment",$this->alignment);
+                $stmp->bindParam(":AdventureGround",$this->adventuringgrd);
+                $stmp->execute();
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }       
+        function insertAttributes($user,$connection){
+            try{
+                $stmp=$connection->prepare("INSERT INTO `ddtest`.`Attributes` (`Character_User_emailUser`, `Character_nameCharacter`,
+                 `Strength`, `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, `Charisma`, `Inspiration`, `ProefiencyBonus`) 
+                VALUES (:userEmail,:nameChar, :str, :dex, :cons, :inte, :wis, :chari, :inspi, :prof);");
+                 $stmp->bindParam(":userEmail",$user);
+                 $stmp->bindParam(":nameChar",$this->name);
+                 $stmp->bindParam(":str",intval($this->strength));
+                 $stmp->bindParam(":dex",intval($this->dexterity));
+                 $stmp->bindParam(":cons",intval($this->constitution));
+                 $stmp->bindParam(":inte",intval($this->intelligence));
+                 $stmp->bindParam(":wis",intval($this->wisdom));
+                 $stmp->bindParam(":chari",intval($this->charisma));
+                 $stmp->bindParam(":inspi",($this->inspiration));
+                 $stmp->bindParam(":prof",($this->proefiencybonus));
+                 $stmp->execute();
+
+
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }        
     }
 ?>
