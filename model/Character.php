@@ -19,10 +19,6 @@
         //Pane 2 e 3
         public $inspiration;
         public $proefiencybonus;
-        public $armorclass;
-        public $maxhp;
-        public $temphp;
-        public $currenthp;
         //Pane saving throws
         public $svstrength;
         public $svdexterity;
@@ -36,6 +32,10 @@
         public $initiative;
         public $speed;
         public $vision;
+        public $armorclass;
+        public $maxhp;
+        public $temphp;
+        public $currenthp;
         //Next
         public $profandlang;
         //Skills
@@ -114,6 +114,8 @@
                 ));
                 $this->insertGeneralInfos($user,$dbh);
                 $this->insertAttributes($user,$dbh);
+                $this->insertOthers($user,$dbh);
+                $this->insertSavings($user,$dbh);
                 print_r($this);
             }
             catch(PDOException $e){
@@ -172,6 +174,49 @@
 
 
             }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertOthers($user,$connection){
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`Other` (`Character_nameCharacter`,
+                 `Character_User_emailUser`, `PassivePerception`, `Iniative`, `Speed`, `Vision`, `ArmorClass`, 
+                 `MaxHP`, `CurrentHP`, `TempHP`) 
+                VALUES (:nameChar, :userName, :Pp, :initiative, :speed, :vision, :armorclass, :maxhp,
+                :currenthp, :temphp);");
+                $st->bindparam(":nameChar",$this->name);
+                $st->bindparam(":userName",$user);
+                $st->bindParam(":Pp",$this->passiveperception);
+                $st->bindParam(":initiative",$this->initiative);
+                $st->bindParam(":speed",$this->speed);
+                $st->bindParam(":vision",$this->vision);
+                $st->bindParam(":armorclass",intval($this->armorclass));
+                $st->bindParam(":maxhp",intval($this->maxhp));
+                $st->bindParam(":currenthp",intval($this->currenthp));
+                $st->bindParam(":temphp",intval($this->temphp));
+                $st->execute();
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertSavings($user,$connection){
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`SavingThrows` 
+                (`Character_nameCharacter`, `Character_User_emailUser`, `Strength`, 
+                `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, `Charisma`) 
+                VALUES (:nameChar, :userName,:str, :dex, :con, :inte, :wis, :chari);");
+                $st->bindParam(":nameChar",$this->name);
+                $st->bindParam(":userName",$user);
+                $st->bindParam(":str",$this->svstrength);
+                $st->bindParam(":dex",$this->svdexterity);
+                $st->bindParam(":con",$this->svconstitution);
+                $st->bindParam(":inte",$this->svintelligence);
+                $st->bindParam(":wis",$this->svwisdom);
+                $st->bindParam(":chari",$this->svcharisma);
+                $st->execute();
+            }   
             catch(PDOException $e){
                 throw $e;
             }

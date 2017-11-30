@@ -51,6 +51,10 @@ function Send(){
         initiative: gbn("initiative"),
         speed: gbn("speed"),
         vision: gbn("vision"),
+        armorclass: gbn("armor_class"),
+        maxhp:gbn("max_hp"),
+        temphp:gbn("temp_hp"),
+        currenthp:gbn("current_hp"),
         //Next
         profandlang: gbcac("other_",10),
         //skills
