@@ -63,15 +63,6 @@ button{
     flex: 1;
 }
 
-
-/* input[type="text"] {
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px;
-    text-align: center;
-} */
-
 input[type="text"],input[type="password"],input[type="email"] {
     background-color: #FFF9BC;
     border: 1px solid #FFF9BC;
@@ -96,7 +87,7 @@ input[type="text"],input[type="password"],input[type="email"] {
 
 .DD-font {
     font-family: DUNG;
-    font-size: 3em;
+    font-size: 4em;
 }
 
 .DD-logo {
