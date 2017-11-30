@@ -46,8 +46,40 @@ button{
     background-color: #FFF9BC;
     border: 1px solid #FFF9BC;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px;
+    box-shadow: 3px 3px 3px;
     text-align: center;
+}
+
+button:hover{
+    background-color: rgb(216, 210, 157);
+    border: 1px solid rgb(216, 210, 157);
+}
+
+@keyframes kapriel{
+    0%{
+        transform: scale(2,2);
+    }
+    20%{
+        transform: rotate(120deg);
+    }
+    40%{
+        transform: scale(3,3);
+    }
+    60%{
+        transform: rotate(240deg);
+    }
+    80%{
+        transform: scale(4,4);
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+
+button:active{
+    box-shadow: 1px 1px 1px;
+    animation-name: kapriel;
+    animation-duration: 2s;
 }
 
 .send-button{
