@@ -22,7 +22,7 @@ function Send(){
     $.post("../controller/charactercontroller.php",
     {
         //Dados do personagem
-        controllertag: 0,
+        controllertag: 3,
         name: gbn("char_name"),
         level: gbn("char_level"),
         raceclass: gbn("race_class"),
