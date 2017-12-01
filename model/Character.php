@@ -142,6 +142,8 @@
                 $this->getProfAndLang($dbh,$userName,$charName);
                 $this->getFeatsAndTraits($dbh,$userName,$charName);
                 $this->getInventory($dbh,$userName,$charName);
+                $this->getAttacksAndSpells($dbh,$userName,$charName);
+                $this->getSkills($dbh,$userName,$charName);
 
             }
             catch(PDOException $e){
@@ -248,10 +250,38 @@
         }
         function getSkills($connection,$userName,$charName){
             try{
-
+                $st=$connection->prepare("SELECT `Character_nameCharacter`, `Character_User_emailUser`, `Acrobatics`, 
+                `AnimalHandling`, `Arcana`, `Athletics`, `Deception`, `History`, `Insigth`, `Intimidation`,
+                 `Investigation`, `Medicine`, `Nature`, `Perception`, `Performance`, `Persuasion`, `Religion`, 
+                 `SleightofHand`, `Stealth`, `Survival` FROM `Skills` 
+                 WHERE Character_User_emailUser = :mail AND Character_nameCharacter=:charName");
+                 $st->bindParam(":mail",$userName);
+                 $st->bindParam(":charName",$charName);
+                 if($st->execute()){
+                     while($row=$st->fetch()){
+                        $this->acrobatics=$row["Acrobatics"];
+                        $this->animalhand=$row["AnimalHandling"];
+                        $this->arcana=$row["Arcana"];
+                        $this->athletics=$row["Athletics"];
+                        $this->deception=$row["Deception"];
+                        $this->history=$row["History"];
+                        $this->insight=$row["Insigth"];
+                        $this->intimidation=$row["Intimidation"];
+                        $this->investigation=$row["Investigation"];
+                        $this->medicine=$row["Medicine"];
+                        $this->nature=$row["Nature"];
+                        $this->perception=$row["Perception"];
+                        $this->performance=$row["Performance"];
+                        $this->persuasion=$row["Persuasion"];
+                        $this->religion=$row["Religion"];
+                        $this->sleiofhand=$row["SleightofHand"];
+                        $this->stealth=$row["Stealth"];
+                        $this->survival=$row["Survival"];                        
+                     }
+                 }
             }
             catch(PDOException $e){
-                
+                throw $e;   
             }
         }
         function getProfAndLang($connection,$userName,$charName){
@@ -330,15 +360,35 @@
                   }
             }
             catch(PDOException $e){
-                
+                throw $e;
             }            
         }
         function getAttacksAndSpells($connection,$userName,$charName){
+            $this->attsandspell=array();
             try{
+                $st=$connection->prepare("SELECT `Name`, `Attack`, `Damage`, `Range`, `Ammo`, `Used`,
+                 `Attributes_Character_User_emailUser`, `Attributes_Character_nameCharacter` 
+                 FROM `AttacksAndSpells` 
+                 WHERE Attributes_Character_User_emailUser = :mail 
+                 AND Attributes_Character_nameCharacter=:charName");
+                 $st->bindParam(":mail",$userName);
+                 $st->bindParam(":charName",$charName);
+                 if($st->execute()){
+                     while($row=$st->fetch()){
+                         $aesobj=new Aes();
+                         $aesobj->name=$row["Name"];
+                         $aesobj->attack=$row["Attack"];
+                         $aesobj->damage=$row["Damage"];
+                         $aesobj->range=$row["Range"];
+                         $aesobj->ammo=$row["Ammo"];
+                         $aesobj->used=$row["Used"];
+                         array_push($this->attsandspell,$aesobj);
+                     }
+                 }
 
             }
             catch(PDOException $e){
-                
+                throw $e;
             }
         }
         function insertGeneralInfos($user,$connection){
