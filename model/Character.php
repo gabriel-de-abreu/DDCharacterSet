@@ -71,10 +71,6 @@
 
         function explodeGen($strFromPage){
             $strFromPage=explode("|sep|",$strFromPage);
-            for($i=0; $i<count($strFromPage)-1;$i++){
-                echo $strFromPage[$i];
-                echo "\n";
-            }
             return $strFromPage;
         }
 
@@ -121,7 +117,7 @@
                 $this->insertFeatsAndTraits($user,$dbh);
                 $this->insertInventory($user,$dbh);
                 $this->insertAttacksAndSpells($user,$dbh);
-                print_r($this);
+                echo json_encode($this);
             }
             catch(PDOException $e){
                 echo "Teste".$e->getMessage();
