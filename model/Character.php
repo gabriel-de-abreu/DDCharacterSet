@@ -137,6 +137,8 @@
                     PDO::ATTR_PERSISTENT => true
                 ));
                 $this->getGeneralInfo($dbh,$userName,$charName);
+                $this->getAttributes($dbh,$userName,$charName);
+                $this->getOthers($dbh,$userName,$charName);
 
             }
             catch(PDOException $e){
@@ -152,6 +154,7 @@
               $st->bindParam(":mail",$userName);
               $st->bindParam(":charName",$charName);
               if($st->execute()){
+                echo "funcionou";
                   while($row=$st->fetch()){
                      // print_r($row);
                       $this->name=$row['nameCharacter'];
@@ -166,18 +169,54 @@
         }
         function getAttributes($connection,$userName,$charName){
             try{
-
+                $st=$connection->prepare("SELECT `Character_User_emailUser`, `Character_nameCharacter`, 
+                `Strength`, 
+                `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, 
+                `Charisma`, `Inspiration`, `ProefiencyBonus` 
+                FROM `Attributes` WHERE Character_User_emailUser = :mail AND Character_nameCharacter=:charName");
+                 $st->bindParam(":mail",$userName);
+                 $st->bindParam(":charName",$charName);
+                 if($st->execute()){
+                    while($row=$st->fetch()){
+                        //print_r($row);
+                        $this->strength=$row["Strength"];
+                        $this->dexterity=$row["Dexterity"];
+                        $this->constitution=$row["Constitution"];
+                        $this->intelligence=$row["Intelligence"];
+                        $this->wisdom=$row["Wisdom"];
+                        $this->charisma=$row["Charisma"];
+                        $this->inspiration=$row["Inspiration"];
+                        $this->proefiencybonus=$row["ProefiencyBonus"];
+                    }
+                 }
             }
             catch(PDOException $e){
-
+                throw $e;
             }
         }
         function getOthers($connection,$userName,$charName){
             try{
-
+                $st=$connection->prepare("SELECT `Character_nameCharacter`, `Character_User_emailUser`, 
+                `PassivePerception`, 
+                `Iniative`, `Speed`, `Vision`, `ArmorClass`, `MaxHP`, `CurrentHP`,
+                 `TempHP` FROM `Other` WHERE Character_User_emailUser = :mail AND Character_nameCharacter=:charName");
+                $st->bindParam(":mail",$userName);
+                $st->bindParam(":charName",$charName);
+                if($st->execute()){
+                    while($row=$st->fetch()){
+                        $this->passiveperception=$row["PassivePerception"];
+                        $this->initiative=$row["Iniative"];
+                        $this->speed=$row["Speed"];
+                        $this->vision=$row["Vision"];
+                        $this->armorclass=$row["ArmorClass"];
+                        $this->maxhp=$row["MaxHP"];
+                        $this->currenthp=$row["CurrentHP"];
+                        $this->temphp=$row["TempHP"];
+                    }
+                }
             }
             catch(PDOException $e){
-                
+                throw $e;   
             }
         }
         function getSavings($connection,$userName,$charName){
