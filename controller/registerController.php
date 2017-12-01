@@ -5,9 +5,8 @@
     $user->setEmail($_POST["email"]);
     $user->setPassword($_POST["password"]);
     if($user->createUser()){
-        echo "deu certo <br>";
+        echo "Usuário criado com sucesso";
     }else{
-        echo "falhou <br>";
+        echo "Usuário não criado";
     }
-    echo "created user";
 ?>
