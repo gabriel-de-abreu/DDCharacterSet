@@ -28,12 +28,15 @@
                 $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                     PDO::ATTR_PERSISTENT => true));
                 $stmp=
-                $connection->prepare("INSERT INTO `ddtest`.`User` (`emailUser`, `senhaUser`, `loginUser`) VALUES (:email,:senha,:login);"); 
+                $dbh->prepare("INSERT INTO `ddtest`.`User` (`emailUser`, `senhaUser`, `loginUser`) VALUES (:email,:senha,:login);"); 
                 $stmp->bindParam(":email",$this->email);
-                $stmp->bindParam(":senha",$this->username);
-                $stmp->bindParam(":login",$this->password);
-                $stmp->execute();
-                print_r($this);
+                $stmp->bindParam(":login",$this->username);
+                $stmp->bindParam(":senha",$this->password);
+                if($stmp->execute()){
+                    return true;
+                }else{
+                    return false;
+                }
             }catch(PDOException $e){
                 echo "Teste".$e->getMessage();
                 die();
