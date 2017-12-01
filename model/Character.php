@@ -117,7 +117,6 @@
                 $this->insertFeatsAndTraits($user,$dbh);
                 $this->insertInventory($user,$dbh);
                 $this->insertAttacksAndSpells($user,$dbh);
-                echo json_encode($this);
             }
             catch(PDOException $e){
                 echo "Teste".$e->getMessage();
@@ -131,8 +130,103 @@
         function removeChar(){
             echo "Removendo Character";
         }
-        function getChar(){
+        function getChar($userName,$charName){
             echo "Buscando Character";
+            try{
+                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true
+                ));
+                $this->getGeneralInfo($dbh,$userName,$charName);
+
+            }
+            catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();                
+            }
+            echo json_encode($this);
+        }
+        function getGeneralInfo($connection,$userName,$charName){
+            $st=$connection->prepare("SELECT `nameCharacter`, `User_emailUser`, `RaceClass`, `Background`, `PlayerName`,
+             `ExperiencePoints`, `Alignment`, `AdventureGround` FROM `Character`
+              WHERE User_emailUser = :mail AND nameCharacter=:charName");
+              $st->bindParam(":mail",$userName);
+              $st->bindParam(":charName",$charName);
+              if($st->execute()){
+                  while($row=$st->fetch()){
+                     // print_r($row);
+                      $this->name=$row['nameCharacter'];
+                      $this->RaceClass=$row["RaceClass"];
+                      $this->background=$row["Background"];
+                      $this->playername=$row["PlayerName"];
+                      $this->xppoints=$row["ExperiencePoints"];
+                      $this->alignment=$row["Alignment"];
+                      $this->adventuringgrd=$row["AdventureGround"];
+                  }
+              }
+        }
+        function getAttributes($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+
+            }
+        }
+        function getOthers($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
+        }
+        function getSavings($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
+        }
+        function getSkills($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
+        }
+        function getProfAndLang($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
+        }
+        function getFeatsAndTraits($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
+        }
+        function getInventory($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }            
+        }
+        function getAttacksAndSpells($connection,$userName,$charName){
+            try{
+
+            }
+            catch(PDOException $e){
+                
+            }
         }
         function insertGeneralInfos($user,$connection){
              try{

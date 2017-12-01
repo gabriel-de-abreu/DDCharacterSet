@@ -84,7 +84,7 @@
                 break;
             case 3: 
                 $objChar=new Character();
-                $objChar::getChar();
+                $objChar->getChar("fulano","teste24");
                 break;
         }
 ?>
