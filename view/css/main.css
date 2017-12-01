@@ -28,8 +28,12 @@
     margin: 0 auto;
 }
 
-.main-create{
-    margin: 3% auto;
+.div-button{
+    margin: 2% auto;
+}
+
+.main-button{
+    font-size: 1em;
 }
 
 @media screen and (max-width: 960px) {

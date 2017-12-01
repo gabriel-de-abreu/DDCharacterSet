@@ -1,0 +1,42 @@
+html,body {
+    max-width: 100vw;
+    min-width: auto;
+    margin: 0 auto;
+    /* 
+    background-color: #FFF9BC; */
+    background-image: url("../img/rect3338.png");
+    color: black;
+    text-align: center;
+}
+
+.main-body {
+    max-width: 1280px;
+    min-width: 640px;
+    margin: 45px auto 20px auto;
+}
+
+.navbar{
+    width: 100%;
+    background-color: #FFF9BC;
+    border: 1px solid #FFF9BC;
+    text-align: left;
+    position: fixed;
+    top: 0;
+}
+
+.navbar a{
+    color: #000;
+    height: 100%;
+    padding: 10px;
+    border-right: 2px solid black;
+    text-decoration: none;
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+}
+
+.navbar a:hover{
+    background-color: rgb(223, 216, 163);
+}
