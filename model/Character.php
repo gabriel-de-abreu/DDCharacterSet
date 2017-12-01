@@ -117,6 +117,8 @@
                 $this->insertOthers($user,$dbh);
                 $this->insertSavings($user,$dbh);
                 $this->insertSkills($user,$dbh);
+                $this->insertProfAndLang($user,$dbh);
+                $this->insertFeatsAndTraits($user,$dbh);
                 print_r($this);
             }
             catch(PDOException $e){
@@ -253,6 +255,48 @@
                 $st->bindParam(":steal",$this->stealth);
                 $st->bindParam(":surv",$this->survival);
                 $st->execute();
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertProfAndLang($user,$connection){
+            $this->explodeProfAndLang();
+
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`ProfAndLang` (`Character_nameCharacter`, 
+                `Character_User_emailUser`, 
+                `Line1`, `Line2`, `Line3`, `Line4`, `Line5`, `Line6`, `Line7`, `Line8`, `Line9`, `Line10`) 
+                VALUES ( :nameChar,:userName ,:line1, :line2, :line3, :line4, :line5, :line6, 
+                :line7, :line7, :line8, :line10);");
+                $st->bindParam(":nameChar",$this->name);
+                $st->bindParam(":userName",$user);
+                for($i=0;$i<count($this->profandlang)-1;$i++){
+                    $st->bindParam(":line".($i+1),$this->profandlang[$i]);
+                }
+                $st->execute();
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertFeatsAndTraits($user,$connection){
+            $this->explodeFeatsAndTraits();
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`FeaturesAndTraits` (`Character_nameCharacter`,
+                 `Character_User_emailUser`, `Line1`, `Line2`, `Line3`, `Line4`, `Line5`, `Line6`, `Line7`, 
+                 `Line8`, `Line9`, `Line10`, `Line11`, `Line12`, `Line13`, `Line14`, `Line15`, `Line16`, 
+                 `Line17`, `Line18`) 
+                 VALUES (:charName,:userName,:line1, :line2, :line3, :line4, :line5,:line6,:line7, 
+                 :line8, :line9, :line10, :line11, 
+                 :line12, :line13, :line14, :line15, :line16, :line17, :line18);");
+                 $st->bindParam(":charName",$this->name);
+                 $st->bindParam(":userName",$user);
+                 for($i=0;$i<count($this->featandtraits)-1;$i++){
+                     echo ":line".($i+1);
+                     $st->bindParam(":line".($i+1),$this->featandtraits[$i]);                     
+                 }
+                 $st->execute();
             }
             catch(PDOException $e){
                 throw $e;
