@@ -4,9 +4,24 @@
     $user->setUsername($_POST["login"]);
     $user->setEmail($_POST["email"]);
     $user->setPassword($_POST["password"]);
-    if($user->createUser()){
-        echo "Usuário criado com sucesso";
-    }else{
-        echo "Usuário não criado";
+
+    $ctrl = true;
+    if(!$user->uniqueUser()){
+        echo "2";
+        $ctrl = false;
     }
+    if(!$user->uniqueEmail()){
+        echo "3";
+        $ctrl = false;
+    }
+
+    if($ctrl){
+        if($user->createUser()){
+            echo "1";
+        }else{
+            echo "0";
+        }
+    }
+
+    
 ?>

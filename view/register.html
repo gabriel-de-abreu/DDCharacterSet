@@ -15,17 +15,15 @@
 </head>
 
 <body>
-<form class="register-form border" onsubmit="registerUser();return false;">
-
+<form id="form" class="register-form border" onsubmit="registerUser();return false;">
     <h2 class="register-title DD-font">Register</h2>
-
     <div class="register-fields">
         <label>Login</label>
-        <input type="text" required="required" name="login">
+        <input type="text" required name="login" pattern=".{5,}" title="mínimo de 5 caracteres">
         <label>Email</label>
-        <input type="email" required="required" name="email">
+        <input type="email" required name="email">
         <label>Password</label>
-        <input type="password" required="required" name="password">
+        <input type="password" required name="password" pattern=".{5,}" title="mínimo de 5 caracteres">
         <div class="register-button">
             <button type="submit">Register</button>
         </div>
@@ -34,7 +32,7 @@
 
 <!-- Modal HTML embedded directly into document -->
 <div id="ex" class="modal">
-    <p id="result">lorem</p>
+    <p id="result"></p>
   </div>
 </body>
 

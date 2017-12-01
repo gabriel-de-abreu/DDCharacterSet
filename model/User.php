@@ -43,5 +43,62 @@
             }
         }
 
+        function uniqueUser(){
+            try{
+                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true));
+                $stmp=
+                $dbh->prepare("SELECT `loginUser` FROM `User` WHERE loginUser=:login;");
+                $stmp->bindParam(":login",$this->username);
+                $stmp->execute();
+               
+                if($stmp->rowCount()==0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();
+            }
+        }
+
+        function uniqueEmail(){
+            try{
+                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true));
+                $stmp=
+                $dbh->prepare("SELECT `emailUser` FROM `User` WHERE emailUser=:email;");
+                $stmp->bindParam(":email",$this->email);
+                $stmp->execute();
+               
+                if($stmp->rowCount()==0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();
+            }
+        }
+
+        function authenticateUser(){
+            try{
+                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true));
+                $stmp=
+                $dbh->prepare("SELECT `loginUser`,`senhaUser` FROM `User` WHERE loginUser=:login;");
+                $stmp->bindParam(":login",$this->username);
+                $stmp->execute();
+               
+                return $stmp->fetchAll();
+                
+            }catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();
+            }
+        }
+
     }
 ?>
