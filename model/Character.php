@@ -119,6 +119,7 @@
                 $this->insertSkills($user,$dbh);
                 $this->insertProfAndLang($user,$dbh);
                 $this->insertFeatsAndTraits($user,$dbh);
+                $this->insertInventory($user,$dbh);
                 print_r($this);
             }
             catch(PDOException $e){
@@ -293,12 +294,42 @@
                  $st->bindParam(":charName",$this->name);
                  $st->bindParam(":userName",$user);
                  for($i=0;$i<count($this->featandtraits)-1;$i++){
-                     echo ":line".($i+1);
                      $st->bindParam(":line".($i+1),$this->featandtraits[$i]);                     
                  }
                  $st->execute();
             }
             catch(PDOException $e){
+                throw $e;
+            }
+        }
+        function insertInventory($user,$connection){
+            $this->explodeInvetoryAndEquips();
+            try{
+                $st=$connection->prepare("INSERT INTO `ddtest`.`InventoryAndEquipment` (`Character_nameCharacter`, 
+                `Character_User_emailUser`, `iC`, `iS`, `iE`, `iG`, `iP`) 
+                VALUES (:nameChar,:userName,:ic, :isi, :ie, :ig, :iP);");
+                $st->bindParam(":nameChar",$this->name);
+                $st->bindParam(":userName",$user);
+                $st->bindParam(":ic",$this->iC);
+                $st->bindParam(":isi",$this->iS);
+                $st->bindParam(":ie",$this->iE);
+                $st->bindParam(":ig",$this->iG);
+                $st->bindParam(":iP",$this->iP);
+                $st->execute();
+                //Para as linhas extras do inventário
+                $st=$connection->prepare("INSERT INTO `ddtest`.`InventoryExtra` (`Character_nameCharacter`, 
+                `Character_User_emailUser`, `Line1`, `Line2`, `Line3`, `Line4`, `Line5`, `Line6`, `Line7`, 
+                `Line8`, `Line9`, `Line10`, `Line11`, `Line12`, `Line13`) 
+                VALUES (:nameChar,:userName, :line1, :line2, :line3, :line4, :line5, 
+                :line6, :line7, :line8, :line9, :line10, :line11, :line12, :line13);");
+                $st->bindParam(":nameChar",$this->name);
+                $st->bindParam(":userName",$user);
+                for($i=0;$i<count($this->iextra)-1;$i++){
+                    $st->bindParam(":line".($i+1),$this->iextra[$i]);
+                }
+                $st->execute();
+            }
+            catch (PDOException $e){
                 throw $e;
             }
         }        
