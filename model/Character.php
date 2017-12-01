@@ -120,6 +120,7 @@
                 $this->insertProfAndLang($user,$dbh);
                 $this->insertFeatsAndTraits($user,$dbh);
                 $this->insertInventory($user,$dbh);
+                $this->insertAttacksAndSpells($user,$dbh);
                 print_r($this);
             }
             catch(PDOException $e){
@@ -332,6 +333,29 @@
             catch (PDOException $e){
                 throw $e;
             }
-        }        
+        }   
+        function insertAttacksAndSpells($user,$connection){
+            $this->explodeAttAndSpell();
+            try{
+                for($i=0;$i<count($this->attsandspell)-1;$i++){
+                    $st=$connection->prepare("INSERT INTO `ddtest`.`AttacksAndSpells` (`Name`, `Attack`, `Damage`,
+                     `Range`, 
+                    `Ammo`, `Used`, `Attributes_Character_User_emailUser`, `Attributes_Character_nameCharacter`) 
+                    VALUES (:nameA,:att , :dam, :ran, :amm, :used, :userName, :nameChar);");
+                    $st->bindParam(":nameA",$this->attsandspell[$i]->name);
+                    $st->bindParam(":att",$this->attsandspell[$i]->attack);
+                    $st->bindParam(":dam",$this->attsandspell[$i]->damage);
+                    $st->bindParam(":ran",$this->attsandspell[$i]->range);
+                    $st->bindParam(":amm",$this->attsandspell[$i]->ammo);
+                    $st->bindParam(":used",$this->attsandspell[$i]->used);
+                    $st->bindParam(":userName",$user);
+                    $st->bindParam(":nameChar",$this->name);
+                    $st->execute();
+                }
+            }
+            catch(PDOException $e){
+                throw $e;
+            }
+        }     
     }
 ?>
