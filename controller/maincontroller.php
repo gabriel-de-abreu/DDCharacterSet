@@ -24,16 +24,13 @@
         }
         break;
 
-        case 1: //Para entrar em um char
+        case 1: //Para criar um char
         break;
 
-        case 2: //Para alterar um char
-        break;
-
-        case 3: //Para excluir o char
+        case 2: //Para excluir o char
         break;
         
-        case 4: //Para fazer o logoff
+        case 3: //Para fazer o logoff
         break;
         
     }
