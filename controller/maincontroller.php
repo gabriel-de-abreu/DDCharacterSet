@@ -30,7 +30,7 @@
 
         case 1: //Para excluir o char
         $obj= new Character();
-        $obj->deleteCharacter($_SESSION["mailUser"],$_POST["charName"]);
+        $obj->deleteCharacter($_SESSION["mailUser"],$_POST["charName"],false);
         break;        
         
     }

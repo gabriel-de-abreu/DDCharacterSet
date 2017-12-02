@@ -1,10 +1,7 @@
 <?php
     session_start();
     include ("../model/Character.php");
-    $i=$_POST["controllertag"];
-        switch($i){
-            case 0:
-            //Adicionar um novo character
+    function generateCharacter(){
                 //Dados do personagem
                 $objChar=new Character();
                 $objChar->name=$_POST["name"];
@@ -72,19 +69,27 @@
                 $objChar->iG=$_POST["iG"];
                 $objChar->iP=$_POST["iP"];
                 $objChar->iextra=$_POST["iextra"];
-                $objChar->addChar($_SESSION["mailUser"]);
+                return $objChar;       
+
+    }
+    $i=$_POST["controllertag"];
+        switch($i){
+            case 0:
+            //Adicionar um novo character
+                generateCharacter()->addChar($_SESSION["mailUser"],false);
                 break;
             
             case 1:
-                $objChar= new Character();
-                $objChar::updateChar();
+            //Atualizar character
+                generateCharacter()->updateChar($_SESSION["mailUser"],$_POST["charName"]);
                 break;
             case 2:
+            //Deletar Character
                 $objChar=new Character();
-                echo $_POST["charName"];
-                $objChar->deleteCharacter($_SESSION["mailUser"],$_POST["charName"]);
+                $objChar->deleteCharacter($_SESSION["mailUser"],$_POST["charName"],false);
                 break;
             case 3: 
+            //Recuperar informações
                 $objChar=new Character();
                 echo $objChar->getChar($_SESSION["mailUser"],$_POST["charName"]);
                 break;

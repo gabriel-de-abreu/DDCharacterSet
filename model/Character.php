@@ -119,7 +119,7 @@
         function explodeInvetoryAndEquips(){
             $this->iextra=$this->explodeGen($this->iextra);
         }
-        function addChar($user){
+        function addChar($user,$updateflag){
             $aux1=true;
             $aux2=true;
             $aux3=true;
@@ -146,7 +146,7 @@
                     $aux3=false;
                 }
                 if(!$this->insertSavings($user,$dbh)){
-                    echo "<p>Falha ao inserir skills!</p>";
+                    echo "<p>Falha ao inserir savings!</p>";
                     $aux4=false;
                 }
                 if(!$this->insertSkills($user,$dbh)){
@@ -170,7 +170,11 @@
                     $aux9=false;
                 }   
                 if(($aux1) AND ($aux2) AND ($aux3) AND ($aux4) AND ($aux5) AND ($aux6) AND ($aux7) AND ($aux8) AND ($aux9)){
-                    echo("<p>Personagem inserido com sucesso!</p>");
+                    if($updateflag==false){
+                        echo ("<p>Personagem inserido com sucesso!</p>");
+                    }else{
+                        echo ("<p>Personagem atualizado com sucesso com sucesso!</p>");
+                    }
                 }
             }
             catch(PDOException $e){
@@ -179,8 +183,9 @@
             }
            // echo "Adicionando character";
         }
-        function updateChar(){
-            echo "Atualizando Character";
+        function updateChar($user,$character){
+            $this->deleteCharacter($user,$character,true);
+            $this->addChar($user,true);
         }
         function getChar($userName,$charName){
             //echo "Buscando Character";
@@ -678,7 +683,7 @@
             }
             return false;
         }
-        function deleteCharacter($user,$character){
+        function deleteCharacter($user,$character,$updateflag){
             $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                 PDO::ATTR_PERSISTENT => true
             ));
@@ -686,9 +691,13 @@
             $st->bindParam(":user",$user);
             $st->bindParam(":charName",$character);
             if($st->execute()){
-                echo "Personagem Excluído com sucesso!";
+                if(!$updateflag){
+                    echo "Personagem Excluído com sucesso!";
+                }
             }else{
-                echo "Falha ao excluir personagem!";
+                if(!$updateflag){
+                    echo "Falha ao excluir personagem!";
+                }
             }
         }     
     }
