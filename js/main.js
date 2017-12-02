@@ -3,7 +3,6 @@ $(document).ready(function () {
         tag: 0
     }, function (data, status) {
         document.getElementById("mainTable").innerHTML = data;
-
         $("button").click(function (event) {
             var fullid = event.target.id;
             var id = "";
@@ -11,8 +10,11 @@ $(document).ready(function () {
                 id = fullid.replace("alter", "");
                 gotoChar(id);
             }
-            else if (fullid.search(fullid, "remov") != 1) {
+            else if (fullid.search("remov") !=-1) {
                 id = fullid.replace("remov", "");
+            }
+            else if(fullid.search("createChar")!=-1){
+                gotoCreateChar();
             }
 
         });
@@ -20,15 +22,13 @@ $(document).ready(function () {
 
 });
 
+function gotoCreateChar(){
+    window.location.href = "../view/character.html";
+    setCookie("mustLoad","false",5);
+}
+
 function gotoChar(nameChar) {
     setCookie("mustLoad","true",5);
     setCookie("nameChar",nameChar,5);
     window.location.href = "../view/character.html";
-}
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }

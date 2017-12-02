@@ -72,7 +72,7 @@
                 $objChar->iG=$_POST["iG"];
                 $objChar->iP=$_POST["iP"];
                 $objChar->iextra=$_POST["iextra"];
-                $objChar->addChar("fulano");
+                $objChar->addChar($_SESSION["mailUser"]);
                 break;
             
             case 1:

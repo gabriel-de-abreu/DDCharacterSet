@@ -99,6 +99,20 @@
                 die();
             }
         }
+        function getUserMail($login){
+            $mail="";
+            $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                PDO::ATTR_PERSISTENT => true));
+            $stmp=
+            $dbh->prepare("SELECT `emailUser`, `senhaUser`, `loginUser` FROM `user` WHERE loginUser=:login");
+            $stmp->bindParam(":login",$login);
+            if($stmp->execute()){
+                while($row=$stmp->fetch()){
+                    $mail= $row["emailUser"];
+                }
+            }
+            return $mail;
+        }
 
     }
 ?>

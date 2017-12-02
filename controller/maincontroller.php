@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    include ("../model/User.php");
     function charDiv($name,$level){
         $var="'".$name."alter'";
         $var2="'".$name."remov'";
@@ -12,7 +14,7 @@
             <button id=$var2>Remove</button>
         </div>";
     }
-    session_start();
+    $useraux=new User();
     include ("../model/Character.php");
     switch ($_POST["tag"]){
 
@@ -24,14 +26,10 @@
         }
         break;
 
-        case 1: //Para alter um char
-        header("Location: ../view/character.html");
-        break;
-
-        case 2: //Para excluir o char
+        case 1: //Para excluir o char
         break;
         
-        case 3: //Para fazer o logoff
+        case 2: //Para fazer o logoff
         break;
         
     }
