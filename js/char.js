@@ -19,7 +19,7 @@ function alterNav(nameChar){
     $("#DeleteButton").show();
     $("#save-char-a").text("Save");
     setDeleteButton();
-    getData();
+    getData(nameChar);
 }
 function setFormAction(){
     $("#save-char-a").click(function(){
@@ -169,7 +169,7 @@ function getData(nameChar) {
             charName: nameChar
         },
         function (data, status) {
-            //console.log(data);
+            console.log(data);
             var objChar = JSON.parse(data);
             //console.log(objChar);
             sbn("char_name", objChar.name);
