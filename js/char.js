@@ -1,6 +1,9 @@
 function gbn (name){
     return document.getElementsByName(name)[0].value;
 }
+function sbn(name,value){
+    document.getElementsByName(name)[0].value=value;
+}
 function gbcac(classname, size){
     var message="";    
     for(i=1;i<=size;i++){
@@ -22,7 +25,7 @@ function Send(){
     $.post("../controller/charactercontroller.php",
     {
         //Dados do personagem
-        controllertag: 3,
+        controllertag: 0,
         name: gbn("char_name"),
         level: gbn("char_level"),
         raceclass: gbn("race_class"),
@@ -90,5 +93,89 @@ function Send(){
     },
     function(data, status){
         console.log(data);
+    });
+}
+function getData(){
+    $.post("../controller/charactercontroller.php",
+    {
+        //Dados do personagem
+        controllertag: 3
+    },
+    function(data, status){
+        //console.log(data);
+        var objChar=JSON.parse(data);
+        //console.log(objChar);
+        sbn("char_name",objChar.name);
+        sbn("char_level",objChar.level);
+        sbn("race_class",objChar.RaceClass);
+        sbn("exp",objChar.xppoints);
+        sbn("background",objChar.background);
+        sbn("alignment",objChar.alignment);
+        sbn("player_name",objChar.playername);
+        sbn("adventure-ground",objChar.adventuringgrd);
+        sbn("str",objChar.strength);
+        sbn("dex",objChar.dexterity);
+        sbn("con",objChar.constitution);
+        sbn("int",objChar.intelligence);
+        sbn("wis",objChar.wisdom);
+        sbn("char",objChar.charisma);
+        sbn("inspi",objChar.inspiration);
+        sbn("profbonus",objChar.proefiencybonus);
+        sbn("str-sav",objChar.svstrength);
+        sbn("dex-sav",objChar.svdexterity);
+        sbn("con-sav",objChar.svconstitution);
+        sbn("int-sav",objChar.svintelligence);
+        sbn("wis-sav",objChar.svwisdom);
+        sbn("char-sav",objChar.svcharisma);
+        sbn("armor_class",objChar.armorclass);
+        sbn("max_hp",objChar.maxhp);
+        sbn("temp_hp",objChar.temphp);
+        sbn("current_hp",objChar.currenthp);
+        sbn("passive-perc",objChar.passiveperception);
+        sbn("initiative",objChar.initiative);
+        sbn("speed",objChar.speed);
+        sbn("vision",objChar.vision);
+        for(var it=0;it<10;it++){
+            sbn("other_"+(it+1),objChar.profandlang[it]);
+        }
+        sbn("input-acro",objChar.acrobatics);
+        sbn("input-ah",objChar.animalhand);
+        sbn("input-ath",objChar.athletics);
+        sbn("input-arca",objChar.arcana);
+        sbn("input-dec",objChar.deception);
+        sbn("input-his",objChar.history);
+        sbn("input-ins",objChar.inspiration);
+        sbn("input-intim",objChar.intimidation);
+        sbn("input-inves",objChar.investigation);
+        sbn("input-med",objChar.medicine);
+        sbn("input-nat",objChar.nature);
+        sbn("input-perc",objChar.perception);
+        sbn("input-perf",objChar.performance);
+        sbn("input-pers",objChar.persuasion);
+        sbn("input-rel",objChar.religion);
+        sbn("input-soh",objChar.sleiofhand);
+        sbn("input-steal",objChar.stealth);
+        sbn("input-surv",objChar.survival);
+        for(var it=0;it<10;it++){
+            if(objChar.attsandspell[it]!=null){
+            sbn("equip-name-"+(it+1),objChar.attsandspell[it].name);
+            sbn("equip-atk-"+(it+1),objChar.attsandspell[it].attack);
+            sbn("equip-dam-"+(it+1),objChar.attsandspell[it].damage);
+            sbn("equip-range-"+(it+1),objChar.attsandspell[it].range);
+            sbn("equip-ammo-"+(it+1),objChar.attsandspell[it].ammo);
+            sbn("equip-used-"+(it+1),objChar.attsandspell[it].used);
+            }
+        }
+        for(var it=0;it<18;it++){
+            sbn("trait-"+(it+1),objChar.featandtraits[it]);
+        }
+        sbn("inv-div-c",objChar.iC);
+        sbn("inv-div-s",objChar.iS);
+        sbn("inv-div-e",objChar.iE);
+        sbn("inv-div-g",objChar.iG);
+        sbn("inv-div-p",objChar.iP);
+        for(var it=0;it<13;it++){
+            sbn("inv-"+(it+1),objChar.iextra[it]);
+        }
     });
 }

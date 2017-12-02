@@ -130,7 +130,7 @@
             echo "Removendo Character";
         }
         function getChar($userName,$charName){
-            echo "Buscando Character";
+            //echo "Buscando Character";
             try{
                 $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                     PDO::ATTR_PERSISTENT => true
@@ -150,8 +150,8 @@
                 echo "Teste".$e->getMessage();
                 die();                
             }
-            //echo json_encode($this);
-            print_r($this);
+            echo json_encode($this);
+            //print_r($this);
         }
         function getGeneralInfo($connection,$userName,$charName){
             $st=$connection->prepare("SELECT `nameCharacter`, `User_emailUser`, `RaceClass`, `Background`, `PlayerName`,
@@ -160,7 +160,6 @@
               $st->bindParam(":mail",$userName);
               $st->bindParam(":charName",$charName);
               if($st->execute()){
-                echo "funcionou";
                   while($row=$st->fetch()){
                      // print_r($row);
                       $this->name=$row['nameCharacter'];
