@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D&D Character Sheet</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/character.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/cookies.js"></script>
     <script src="../js/char.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/character.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="main.html">Main Page</a>
-        <a id="save-char-a">Save</a>
-        <a id="DeleteButton">Delete</a>
-        <a id="gen-stats">Gen Attributes</a>
+    <nav class="navbar nav-icon">
+        <i id="dropdown-button" class="fa fa-align-justify" style="font-size:24px"></i>
+        <div class="dropdown-cont">
+            <a href="main.html">Main Page</a>
+            <a id="save-char-a">Save</a>
+            <a id="DeleteButton">Delete</a>
+            <a id="gen-stats">Gen Attributes</a>
+        </div>
     </nav>
     <form id="char-form" class="main-body" onsubmit="Send();return false;">
         <button type="submit" id="form-button" style="display:none"></button>
