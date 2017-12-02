@@ -33,8 +33,14 @@ function loadPage() {
 }
 $(document).ready(function () {
     loadPage();
-});
+    setDelete();
 
+});
+function setDelete(){
+    $("#delete-user").click(function(){
+        deleteUser();
+    });
+}
 function deleteChar(nameChar) {
     $.post("../controller/maincontroller.php", {
         tag: 1,
@@ -65,4 +71,12 @@ function logoff() {
 
     });
     window.location.href = "../view/index.html";
+}
+function deleteUser(){
+    $.post("../controller/maincontroller.php", {
+        tag: 2
+    }, function (data, status) {
+        alert(data);
+    });
+    window.location.href = "../view/index.html";  
 }

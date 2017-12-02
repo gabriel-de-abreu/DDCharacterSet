@@ -114,5 +114,12 @@
             return $mail;
         }
 
+        function deleteUser($user){
+            $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                PDO::ATTR_PERSISTENT => true));
+            $stmp=$dbh->prepare("DELETE FROM `User` WHERE emailUser= :login");
+            $stmp->bindParam(":login",$user);
+            return $stmp->execute();
     }
+}
 ?>

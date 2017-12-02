@@ -29,10 +29,16 @@
         break;
 
         case 1: //Para excluir o char
-        $obj= new Character();
-        $obj->deleteCharacter($_SESSION["mailUser"],$_POST["charName"],false);
+            $obj= new Character();
+            $obj->deleteCharacter($_SESSION["mailUser"],$_POST["charName"],false);
         break;        
         
+        case 2: //Para deletar o user
+            $obj= new User();
+            if($obj->deleteUser($_SESSION["mailUser"])){
+                echo "Usuário deletado com sucesso!";
+            }
+        break;
     }
 
 ?>
