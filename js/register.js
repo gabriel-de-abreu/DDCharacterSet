@@ -13,7 +13,6 @@ function registerUser(){
                 window.location.href = "../view/login.html";
             });
         }else{
-            console.log("entrou no else");
             if(~data.indexOf("2")){
                 result+="Nome de usuário já está sendo utilizado!<br>";
             }
