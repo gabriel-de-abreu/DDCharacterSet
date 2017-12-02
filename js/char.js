@@ -1,3 +1,9 @@
+$( document ).ready(function() {
+    $("#save-char-a").click(function(){
+        $("#form-button").click();
+    });
+});
+
 function gbn (name){
     return document.getElementsByName(name)[0].value;
 }
