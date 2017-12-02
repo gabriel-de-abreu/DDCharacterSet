@@ -134,43 +134,43 @@
                     PDO::ATTR_PERSISTENT => true
                 ));
                 if(!$this->insertGeneralInfos($user,$dbh)){
-                    echo "<p>Falha ao inserir informações gerais</p>";
+                    echo "<p>Falha ao inserir informações gerais!</p>";
                     $aux1=false;
                 }
                 if(!$this->insertAttributes($user,$dbh)){
-                    echo "<p>Falha ao inserir atributos</p>";
+                    echo "<p>Falha ao inserir atributos!</p>";
                     $aux2=false;
                 }
                 if(!$this->insertOthers($user,$dbh)){
-                    echo "<p>Falha ao inserir informações adicionais</p>";
+                    echo "<p>Falha ao inserir informações adicionais!</p>";
                     $aux3=false;
                 }
                 if(!$this->insertSavings($user,$dbh)){
-                    echo "<p>Falha ao inserir skills</p>";
+                    echo "<p>Falha ao inserir skills!</p>";
                     $aux4=false;
                 }
                 if(!$this->insertSkills($user,$dbh)){
-                    echo "<p>Falha ao inserir skills</p>";
+                    echo "<p>Falha ao inserir skill!</p>";
                     $aux5=false;
                 }
                 if(!$this->insertProfAndLang($user,$dbh)){
-                    echo "<p> Falha ao inserir profs and langs </p>";
+                    echo "<p> Falha ao inserir profs and langs!</p>";
                     $aux6=false;
                 }
                 if(!$this->insertFeatsAndTraits($user,$dbh)){
-                    echo "<p>Falha ao inserir feat and traits </p>";
+                    echo "<p>Falha ao inserir feat and traits!</p>";
                     $aux7=false;
                 }
                 if(!$this->insertInventory($user,$dbh)){
-                    echo "<p>Falha ao inserir invetory</p>";
+                    echo "<p>Falha ao inserir invetory!</p>";
                     $aux8=false;
                 }
                 if(!$this->insertAttacksAndSpells($user,$dbh)){
-                    echo "<p>Falha ao inserir Atts and Spells</p>";
+                    echo "<p>Falha ao inserir Atts and Spells!</p>";
                     $aux9=false;
                 }   
-                if(($aux1) OR ($aux2) OR ($aux3) OR ($aux4) OR ($aux5) OR ($aux6) OR ($aux7) OR ($aux8) OR ($aux9)){
-                    echo("<p>Personagem inserido com sucesso</p>");
+                if(($aux1) AND ($aux2) AND ($aux3) AND ($aux4) AND ($aux5) AND ($aux6) AND ($aux7) AND ($aux8) AND ($aux9)){
+                    echo("<p>Personagem inserido com sucesso!</p>");
                 }
             }
             catch(PDOException $e){
@@ -680,6 +680,19 @@
                 throw $e;
             }
             return false;
+        }
+        function deleteCharacter($user,$character){
+            $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                PDO::ATTR_PERSISTENT => true
+            ));
+            $st=$dbh->prepare("DELETE FROM `Character` WHERE User_emailUser =:user AND nameCharacter =:charName");
+            $st->bindParam(":user",$user);
+            $st->bindParam(":charName",$character);
+            if($st->execute()){
+                echo "Personagem Excluído com sucesso!";
+            }else{
+                echo "Falha ao excluir personagem!";
+            }
         }     
     }
 ?>
