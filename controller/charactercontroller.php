@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include ("../model/Character.php");
     $i=$_POST["controllertag"];
         switch($i){
@@ -84,7 +85,7 @@
                 break;
             case 3: 
                 $objChar=new Character();
-                $objChar->getChar("fulano","dsdasdasdas");
+                $objChar->getChar($_SESSION["mailUser"],$_POST["charName"]);
                 break;
         }
 ?>

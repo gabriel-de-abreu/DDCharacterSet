@@ -2,6 +2,14 @@ $( document ).ready(function() {
     $("#save-char-a").click(function(){
         $("#form-button").click();
     });
+    console.log(getCookie("mustLoad"));
+    console.log(getCookie("nameChar"));
+    if(getCookie("mustLoad")=="true"){
+        console.log("foi");
+        getData(getCookie("nameChar"));
+    }else{
+        //do nothing
+    }
 });
 
 function gbn (name){
@@ -101,11 +109,12 @@ function Send(){
         console.log(data);
     });
 }
-function getData(){
+function getData(nameChar){
     $.post("../controller/charactercontroller.php",
     {
         //Dados do personagem
-        controllertag: 3
+        controllertag: 3,
+        charName : nameChar
     },
     function(data, status){
         //console.log(data);

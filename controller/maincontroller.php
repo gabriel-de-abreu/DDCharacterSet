@@ -24,7 +24,8 @@
         }
         break;
 
-        case 1: //Para criar um char
+        case 1: //Para alter um char
+        header("Location: ../view/character.html");
         break;
 
         case 2: //Para excluir o char
