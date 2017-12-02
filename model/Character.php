@@ -67,7 +67,24 @@
         public $iG;
         public $iP;
         public $iextra;
-
+        function  getAllCharsNameLevel($user){
+            try{
+                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                    PDO::ATTR_PERSISTENT => true
+                ));
+                $st=$dbh->prepare("SELECT `nameCharacter`, `User_emailUser`, `Level` FROM `character` WHERE User_emailUser=:user");
+                $st->bindParam(":user",$user);
+                if($st->execute()){     
+                    return $st;
+                }else{
+                    return null;
+                }
+            }
+            catch(PDOException $e){
+                echo "Teste".$e->getMessage();
+                die();
+            }
+        }
         function explodeGen($strFromPage){
             $strFromPage=explode("|sep|",$strFromPage);
             return $strFromPage;
@@ -155,7 +172,7 @@
         }
         function getGeneralInfo($connection,$userName,$charName){
             $st=$connection->prepare("SELECT `nameCharacter`, `User_emailUser`, `RaceClass`, `Background`, `PlayerName`,
-             `ExperiencePoints`, `Alignment`, `AdventureGround` FROM `Character`
+             `ExperiencePoints`, `Alignment`, `AdventureGround`,`Level` FROM `Character`
               WHERE User_emailUser = :mail AND nameCharacter=:charName");
               $st->bindParam(":mail",$userName);
               $st->bindParam(":charName",$charName);
@@ -169,6 +186,7 @@
                       $this->xppoints=$row["ExperiencePoints"];
                       $this->alignment=$row["Alignment"];
                       $this->adventuringgrd=$row["AdventureGround"];
+                      $this->level=$row["Level"];
                   }
               }
         }
@@ -395,9 +413,9 @@
                 $stmp=
                 $connection->prepare("INSERT INTO `ddtest`.`Character` (`nameCharacter`, `User_emailUser`, 
                 `RaceClass`, `Background`, `PlayerName`, `ExperiencePoints`, `Alignment`, 
-                `AdventureGround`) 
+                `AdventureGround`, `Level`) 
                 VALUES (:nameCharacter,:emailUser, :RaceClass, :Background, :PlayerName, :ExperiencePoints
-                ,:aligment, :AdventureGround);"); 
+                ,:aligment, :AdventureGround, :level);"); 
                 $stmp->bindParam(":nameCharacter",$this->name);
                 $stmp->bindParam(":emailUser",$user);
                 $stmp->bindParam(":RaceClass",$this->RaceClass);
@@ -406,6 +424,7 @@
                 $stmp->bindParam(":ExperiencePoints",$this->xppoints);
                 $stmp->bindParam(":aligment",$this->alignment);
                 $stmp->bindParam(":AdventureGround",$this->adventuringgrd);
+                $stmp->bindParam(":level",$this->level);
                 $stmp->execute();
             }
             catch(PDOException $e){

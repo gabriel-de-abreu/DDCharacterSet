@@ -9,6 +9,9 @@
         echo "0";
     }else{
         if($res[0]["senhaUser"]==$user->getPassword()){
+            session_start();
+            $_SESSION["mailUser"]=$_POST["login"];
+            $_POST["password"]="";
             echo "1";
         }else{
             echo "2";
