@@ -104,7 +104,7 @@
             $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                 PDO::ATTR_PERSISTENT => true));
             $stmp=
-            $dbh->prepare("SELECT `emailUser`, `senhaUser`, `loginUser` FROM `user` WHERE loginUser=:login");
+            $dbh->prepare("SELECT `emailUser`, `senhaUser`, `loginUser` FROM `User` WHERE loginUser=:login");
             $stmp->bindParam(":login",$login);
             if($stmp->execute()){
                 while($row=$stmp->fetch()){
