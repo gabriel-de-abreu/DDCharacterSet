@@ -2,6 +2,13 @@ $( document ).ready(function() {
     $("#save-char-a").click(function(){
         $("#form-button").click();
     });
+    $("#gen-stats").click(function(){
+        $.post("../controller/statsController.php",function(data, status){
+        var res = JSON.parse(data);
+        for(i in res){
+            sbn(i,res[i]);
+        }
+    })});
     console.log(getCookie("mustLoad"));
     console.log(getCookie("nameChar"));
     if(getCookie("mustLoad")=="true"){
@@ -11,6 +18,15 @@ $( document ).ready(function() {
         //do nothing
     }
 });
+
+function getStat(){
+    $.post("../controller/statsController.php",function(data, status){
+        var res = JSON.parse(data);
+        for(i in res){
+            sbn(i,res[i]);
+        }
+    });
+}
 
 function gbn (name){
     return document.getElementsByName(name)[0].value;
