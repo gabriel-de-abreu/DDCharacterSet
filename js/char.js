@@ -5,7 +5,7 @@ $( document ).ready(function() {
     console.log(getCookie("mustLoad"));
     console.log(getCookie("nameChar"));
     if(getCookie("mustLoad")=="true"){
-        console.log("foi");
+        //console.log("foi");
         getData(getCookie("nameChar"));
     }else{
         //do nothing

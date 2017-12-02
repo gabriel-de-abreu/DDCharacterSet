@@ -85,7 +85,7 @@
                 break;
             case 3: 
                 $objChar=new Character();
-                $objChar->getChar($_SESSION["mailUser"],$_POST["charName"]);
+                echo $objChar->getChar($_SESSION["mailUser"],$_POST["charName"]);
                 break;
         }
 ?>

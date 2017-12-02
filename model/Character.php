@@ -81,7 +81,7 @@
                 }
             }
             catch(PDOException $e){
-                echo "Teste".$e->getMessage();
+               //echo "Teste".$e->getMessage();
                 die();
             }
         }
@@ -135,10 +135,10 @@
                 $this->insertAttacksAndSpells($user,$dbh);
             }
             catch(PDOException $e){
-                echo "Teste".$e->getMessage();
+                //echo "Teste".$e->getMessage();
                 die();
             }
-            echo "Adicionando character";
+           // echo "Adicionando character";
         }
         function updateChar(){
             echo "Atualizando Character";
@@ -164,10 +164,10 @@
 
             }
             catch(PDOException $e){
-                echo "Teste".$e->getMessage();
+                //echo "Teste".$e->getMessage();
                 die();                
             }
-            echo json_encode($this);
+            return json_encode($this);
             //print_r($this);
         }
         function getGeneralInfo($connection,$userName,$charName){

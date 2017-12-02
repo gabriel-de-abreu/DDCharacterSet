@@ -16,6 +16,9 @@ $(document).ready(function () {
             else if(fullid.search("createChar")!=-1){
                 gotoCreateChar();
             }
+            else if(fullid.search("logoff")!=-1){
+                logoff();
+            }
 
         });
     });
@@ -31,4 +34,15 @@ function gotoChar(nameChar) {
     setCookie("mustLoad","true",5);
     setCookie("nameChar",nameChar,5);
     window.location.href = "../view/character.html";
+}
+
+function logoff(){
+    setCookie("mustLoad","false",5);
+    setCookie("nameChar","",5);
+    $.post("../controller/loginController.php", {
+        tag: 1
+    }, function (data, status) {        
+
+    });
+    window.location.href = "../view/index.html";
 }

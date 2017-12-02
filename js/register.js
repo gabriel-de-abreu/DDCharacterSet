@@ -10,7 +10,7 @@ function registerUser(){
         if(~data.indexOf("1")){
             result = "Usuário criado com sucesso!";
             $('#ex').on($.modal.BEFORE_CLOSE, function(event, modal) {
-                window.location.href = "../view/login.html";
+                window.location.href = "../view/index.html";
             });
         }else{
             if(~data.indexOf("2")){
