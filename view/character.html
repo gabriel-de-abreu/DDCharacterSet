@@ -21,7 +21,6 @@
         <a id="save-char-a">Save</a>
         <a id="DeleteButton">Delete</a>
         <a id="gen-stats">Gen Attributes</a>
-        <div class="clearfix"></div>
     </nav>
     <form id="char-form" class="main-body" onsubmit="Send();return false;">
         <button type="submit" id="form-button" style="display:none"></button>
@@ -267,11 +266,11 @@
                 </div>
 
                 <div class="container-6-2 border">
-                    <input class="big-input" type="text" name="initiative">
+                    <input class="big-input" type="text" name="initiative" required>
                     <p>Initiative</p>
-                    <input class="big-input" type="text" name="speed">
+                    <input class="big-input" type="text" name="speed" required>
                     <p>Speed</p>
-                    <input class="big-input" type="text" name="vision">
+                    <input class="big-input" type="text" name="vision" required>
                     <p>Vision</p>
                 </div>
             </div>

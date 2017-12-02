@@ -40,3 +40,25 @@ html,body {
 .navbar a:hover{
     background-color: rgb(223, 216, 163);
 }
+
+
+@media screen and (max-width: 640px) {
+    
+    .navbar a{
+        float: none;
+        width: 100%;
+        border: none;
+    }
+
+    .navbar :not(:last-child){
+        border-bottom: 2px solid black;
+    }
+
+    .navbar{
+        text-align: center;
+    }
+
+    .main-body{
+        margin-top: 100px;
+    }
+}
