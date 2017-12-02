@@ -81,7 +81,8 @@
                 break;
             case 2:
                 $objChar=new Character();
-                $objChar::removeChar();
+                echo $_POST["charName"];
+                $objChar->deleteCharacter($_SESSION["mailUser"],$_POST["charName"]);
                 break;
             case 3: 
                 $objChar=new Character();

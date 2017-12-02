@@ -182,9 +182,6 @@
         function updateChar(){
             echo "Atualizando Character";
         }
-        function removeChar(){
-            echo "Removendo Character";
-        }
         function getChar($userName,$charName){
             //echo "Buscando Character";
             try{

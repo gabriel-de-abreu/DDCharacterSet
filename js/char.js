@@ -9,11 +9,12 @@ $( document ).ready(function() {
             sbn(i,res[i]);
         }
     })});
-    console.log(getCookie("mustLoad"));
-    console.log(getCookie("nameChar"));
+    // console.log(getCookie("mustLoad"));
+    //console.log(getCookie("nameChar"));
     if(getCookie("mustLoad")=="true"){
         //console.log("foi");
         getData(getCookie("nameChar"));
+        setDeleteButton();
     }else{
         //do nothing
     }
@@ -27,7 +28,24 @@ function getStat(){
         }
     });
 }
+function setUpdateButton(){
+    
+}
 
+function setDeleteButton(){
+    $("#DeleteButton").click(function(){
+        $.post("../controller/charactercontroller.php",{
+            controllertag:2,
+            charName:getCookie("nameChar")
+        },function(data,status){
+            alert(data);
+            window.location.href = "../view/main.html";
+        });
+    });   
+}
+function setSendButton(){
+
+}
 function gbn (name){
     return document.getElementsByName(name)[0].value;
 }
