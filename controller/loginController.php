@@ -5,9 +5,6 @@
     $user->setPassword($_POST["password"]);
 
     $res = $user->authenticateUser();
-
-    print_r($res);
-
     if(empty($res)){
         echo "0";
     }else{
