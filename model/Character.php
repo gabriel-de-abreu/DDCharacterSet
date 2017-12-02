@@ -110,7 +110,7 @@
                 $objaux->used=$tempitems[5];
                 array_push($arrayAttacks,$objaux);                
             }
-           // print_r($arrayAttacks);
+            //print_r($arrayAttacks);
             $this->attsandspell=$arrayAttacks;
         }
         function explodeFeatsAndTraits(){
@@ -608,7 +608,7 @@
         function insertAttacksAndSpells($user,$connection){
             $this->explodeAttAndSpell();
             try{
-                for($i=0;$i<count($this->attsandspell)-1;$i++){
+                for($i=0;$i<count($this->attsandspell);$i++){
                     $st=$connection->prepare("INSERT INTO `ddtest`.`AttacksAndSpells` (`Name`, `Attack`, `Damage`,
                      `Range`, 
                     `Ammo`, `Used`, `Attributes_Character_User_emailUser`, `Attributes_Character_nameCharacter`) 

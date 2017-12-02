@@ -28,11 +28,12 @@ function gbcac(classname, size){
 
 function gattacks(size){
     var line="";
-    for(i=1;i<=size;i++){
+    for(i=1;i<size;i++){
         line+= gbn("equip-name-"+i)+"|sepC|"+gbn("equip-atk-"+i)
         +"|sepC|"+gbn("equip-dam-"+i)+"|sepC|"+gbn("equip-range-"+i)+
         "|sepC|"+gbn("equip-ammo-"+i)+"|sepC|"+gbn("equip-used-"+i)+"|sepL|";
     }
+    //console.log(line);
     return line;
 }
 function Send(){
@@ -94,7 +95,7 @@ function Send(){
         stealth: gbn("input-steal"),
         survival:gbn("input-surv"),
         //attacks and spellcasting
-        attsandspell:gattacks(9),
+        attsandspell:gattacks(10),
         //features and traits
         featandtraits: gbcac("trait-",18),
         //Inventory and equipment

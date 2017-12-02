@@ -8,7 +8,7 @@
         <label>$name</label>
         <label>$level</label>
         <div>
-            <button id=$var>Alter</button>
+            <button id=$var>View</button>
         </div>
         <div>
             <button id=$var2>Remove</button>
