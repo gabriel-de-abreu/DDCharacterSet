@@ -12,13 +12,21 @@ function loadPage() {
             }
             else if (fullid.search("remov") != -1) {
                 id = fullid.replace("remov", "");
-                deleteChar(id);
+                $("#name").html(id);
+                $("#ex").modal({
+                    showClose: false
+                });
             }
             else if (fullid.search("createChar") != -1) {
                 gotoCreateChar();
             }
             else if (fullid.search("logoff") != -1) {
                 logoff();
+            }else if(~fullid.search("yes")){
+                deleteChar($("#name").html());
+                $.modal.close();
+            }else if(~fullid.search("no")){
+                $.modal.close();
             }
         });
     });
