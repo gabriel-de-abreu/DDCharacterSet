@@ -6,13 +6,21 @@ $(document).ready(function () {
         sendOption=1;
         getData(getCookie("nameChar"));
         setDeleteButton();
-        setUpdateButton();
     } else {
         $("#DeleteButton").hide();
         $("#save-char-a").text("Create");
 
     }
 });
+function alterNav(nameChar){
+    sendOption=1;
+    setCookie("nameChar",nameChar);
+    setCookie("mustLoad","true");
+    $("#DeleteButton").show();
+    $("#save-char-a").text("Save");
+    setDeleteButton();
+    getData(nameChar);
+}
 function setFormAction(){
     $("#save-char-a").click(function(){
         $("#form-button").click();
@@ -148,6 +156,9 @@ function Send() {
             console.log(data);
             document.getElementById("result").innerHTML = data;
             $('#ex').modal();
+            if(data.search("Personagem inserido com sucesso!")!=-1){
+                alterNav(gbn("char_name"));
+            }
         });
 }
 function getData(nameChar) {
@@ -158,7 +169,7 @@ function getData(nameChar) {
             charName: nameChar
         },
         function (data, status) {
-            //console.log(data);
+            console.log(data);
             var objChar = JSON.parse(data);
             //console.log(objChar);
             sbn("char_name", objChar.name);

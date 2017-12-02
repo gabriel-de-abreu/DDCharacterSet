@@ -123,58 +123,53 @@
             $aux1=true;
             $aux2=true;
             $aux3=true;
-            $aux4=true;
-            $aux5=true;
-            $aux6=true;
-            $aux7=true;
-            $aux8=true;
-            $aux9=true;
             try{
                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                     PDO::ATTR_PERSISTENT => true
                 ));
                 if(!$this->insertGeneralInfos($user,$dbh)){
-                    echo "<p>Falha ao inserir informações gerais!</p>";
+                    echo "<p>Falha ao inserir informações gerais! \n Usuário já existente</p>";
                     $aux1=false;
+                    die();
                 }
                 if(!$this->insertAttributes($user,$dbh)){
                     echo "<p>Falha ao inserir atributos!</p>";
+                    deleteCharacter($user,$this->name,$updateflag);
                     $aux2=false;
                 }
                 if(!$this->insertOthers($user,$dbh)){
                     echo "<p>Falha ao inserir informações adicionais!</p>";
+                    deleteCharacter($user,$this->name,$updateflag);
                     $aux3=false;
                 }
                 if(!$this->insertSavings($user,$dbh)){
                     echo "<p>Falha ao inserir savings!</p>";
-                    $aux4=false;
+
                 }
                 if(!$this->insertSkills($user,$dbh)){
-                    echo "<p>Falha ao inserir skill!</p>";
-                    $aux5=false;
+                    echo "<p>Falha ao inserir skills! \n Verifique os valores! </p>";
                 }
                 if(!$this->insertProfAndLang($user,$dbh)){
-                    echo "<p> Falha ao inserir profs and langs!</p>";
-                    $aux6=false;
+                    echo "<p> Falha ao inserir profs and langs! \n Verifique os campos!</p>";
+
                 }
                 if(!$this->insertFeatsAndTraits($user,$dbh)){
-                    echo "<p>Falha ao inserir feat and traits!</p>";
-                    $aux7=false;
+                    echo "<p>Falha ao inserir feat and traits! \n Verifique os campos!</p>";
                 }
                 if(!$this->insertInventory($user,$dbh)){
-                    echo "<p>Falha ao inserir invetory!</p>";
-                    $aux8=false;
+                    echo "<p>Falha ao inserir invetory! \n Verifique os campos! </p>";
                 }
                 if(!$this->insertAttacksAndSpells($user,$dbh)){
-                    echo "<p>Falha ao inserir Atts and Spells!</p>";
-                    $aux9=false;
+                    echo "<p>Falha ao inserir Atts and Spells! \n Verifique os campos!</p>";
                 }   
-                if(($aux1) AND ($aux2) AND ($aux3) AND ($aux4) AND ($aux5) AND ($aux6) AND ($aux7) AND ($aux8) AND ($aux9)){
+                if(($aux1) AND ($aux2) AND ($aux3)){
                     if($updateflag==false){
                         echo ("<p>Personagem inserido com sucesso!</p>");
                     }else{
                         echo ("<p>Personagem atualizado com sucesso com sucesso!</p>");
                     }
+                }else{
+                    echo ("<p>Informações críticas com falhas, o personagem não foi inserido!</p>");
                 }
             }
             catch(PDOException $e){
