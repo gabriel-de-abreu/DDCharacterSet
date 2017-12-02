@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.post("../controller/mainController.php", {
+    $.post("../controller/maincontroller.php", {
         tag: 0
     }, function (data, status) {
         document.getElementById("mainTable").innerHTML = data;

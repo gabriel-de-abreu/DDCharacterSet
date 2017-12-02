@@ -72,7 +72,7 @@
                 $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                     PDO::ATTR_PERSISTENT => true
                 ));
-                $st=$dbh->prepare("SELECT `nameCharacter`, `User_emailUser`, `Level` FROM `character` WHERE User_emailUser=:user");
+                $st=$dbh->prepare("SELECT `nameCharacter`, `User_emailUser`, `Level` FROM `Character` WHERE User_emailUser=:user");
                 $st->bindParam(":user",$user);
                 if($st->execute()){     
                     return $st;
