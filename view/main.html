@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D&D Main</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/cookies.js"></script>
     <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -31,7 +34,15 @@
 
         </div>
     </div>
-
+    <!-- Modal HTML embedded directly into document -->
+    <div id="ex" class="modal">
+        <p>Você deseja remover<br></p>
+        <p id="name"></p>
+        <div class="modal-buttons">
+            <button id="yes">Sim</button>
+            <button id="no">Não</button>
+        </div>
+    </div>
 </body>
 
 </html>

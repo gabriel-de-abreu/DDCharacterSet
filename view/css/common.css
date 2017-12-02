@@ -488,6 +488,14 @@ input[type="text"],input[type="password"],input[type="email"] {
     clear: both;
 }
 
+.modal{
+    text-align: center;
+}
+
+.modal-buttons{
+    
+}
+
 @media screen and (max-width: 960px) {
     .container-7 {
         flex: 0;
