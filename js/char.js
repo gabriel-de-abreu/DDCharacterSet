@@ -124,6 +124,8 @@ function Send(){
     },
     function(data, status){
         console.log(data);
+        document.getElementById("result").innerHTML = data;
+        $('#ex').modal();
     });
 }
 function getData(nameChar){

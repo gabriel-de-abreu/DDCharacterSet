@@ -120,19 +120,58 @@
             $this->iextra=$this->explodeGen($this->iextra);
         }
         function addChar($user){
+            $aux1=true;
+            $aux2=true;
+            $aux3=true;
+            $aux4=true;
+            $aux5=true;
+            $aux6=true;
+            $aux7=true;
+            $aux8=true;
+            $aux9=true;
             try{
                $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                     PDO::ATTR_PERSISTENT => true
                 ));
-                $this->insertGeneralInfos($user,$dbh);
-                $this->insertAttributes($user,$dbh);
-                $this->insertOthers($user,$dbh);
-                $this->insertSavings($user,$dbh);
-                $this->insertSkills($user,$dbh);
-                $this->insertProfAndLang($user,$dbh);
-                $this->insertFeatsAndTraits($user,$dbh);
-                $this->insertInventory($user,$dbh);
-                $this->insertAttacksAndSpells($user,$dbh);
+                if(!$this->insertGeneralInfos($user,$dbh)){
+                    echo "<p>Falha ao inserir informações gerais</p>";
+                    $aux1=false;
+                }
+                if(!$this->insertAttributes($user,$dbh)){
+                    echo "<p>Falha ao inserir atributos</p>";
+                    $aux2=false;
+                }
+                if(!$this->insertOthers($user,$dbh)){
+                    echo "<p>Falha ao inserir informações adicionais</p>";
+                    $aux3=false;
+                }
+                if(!$this->insertSavings($user,$dbh)){
+                    echo "<p>Falha ao inserir skills</p>";
+                    $aux4=false;
+                }
+                if(!$this->insertSkills($user,$dbh)){
+                    echo "<p>Falha ao inserir skills</p>";
+                    $aux5=false;
+                }
+                if(!$this->insertProfAndLang($user,$dbh)){
+                    echo "<p> Falha ao inserir profs and langs </p>";
+                    $aux6=false;
+                }
+                if(!$this->insertFeatsAndTraits($user,$dbh)){
+                    echo "<p>Falha ao inserir feat and traits </p>";
+                    $aux7=false;
+                }
+                if(!$this->insertInventory($user,$dbh)){
+                    echo "<p>Falha ao inserir invetory</p>";
+                    $aux8=false;
+                }
+                if(!$this->insertAttacksAndSpells($user,$dbh)){
+                    echo "<p>Falha ao inserir Atts and Spells</p>";
+                    $aux9=false;
+                }   
+                if(($aux1) OR ($aux2) OR ($aux3) OR ($aux4) OR ($aux5) OR ($aux6) OR ($aux7) OR ($aux8) OR ($aux9)){
+                    echo("<p>Personagem inserido com sucesso</p>");
+                }
             }
             catch(PDOException $e){
                 //echo "Teste".$e->getMessage();
@@ -425,11 +464,12 @@
                 $stmp->bindParam(":aligment",$this->alignment);
                 $stmp->bindParam(":AdventureGround",$this->adventuringgrd);
                 $stmp->bindParam(":level",$this->level);
-                $stmp->execute();
+                return $stmp->execute();
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }       
         function insertAttributes($user,$connection){
             try{
@@ -446,13 +486,14 @@
                  $stmp->bindParam(":chari",intval($this->charisma));
                  $stmp->bindParam(":inspi",($this->inspiration));
                  $stmp->bindParam(":prof",($this->proefiencybonus));
-                 $stmp->execute();
+                 return $stmp->execute();
 
 
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertOthers($user,$connection){
             try{
@@ -471,11 +512,12 @@
                 $st->bindParam(":maxhp",intval($this->maxhp));
                 $st->bindParam(":currenthp",intval($this->currenthp));
                 $st->bindParam(":temphp",intval($this->temphp));
-                $st->execute();
+                return $st->execute();
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertSavings($user,$connection){
             try{
@@ -491,11 +533,12 @@
                 $st->bindParam(":inte",$this->svintelligence);
                 $st->bindParam(":wis",$this->svwisdom);
                 $st->bindParam(":chari",$this->svcharisma);
-                $st->execute();
+                return $st->execute();
             }   
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertSkills($user,$connection){
             try{
@@ -527,11 +570,12 @@
                 $st->bindParam(":slei",$this->sleiofhand);
                 $st->bindParam(":steal",$this->stealth);
                 $st->bindParam(":surv",$this->survival);
-                $st->execute();
+                return $st->execute();
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertProfAndLang($user,$connection){
             $this->explodeProfAndLang();
@@ -547,11 +591,12 @@
                 for($i=0;$i<count($this->profandlang)-1;$i++){
                     $st->bindParam(":line".($i+1),$this->profandlang[$i]);
                 }
-                $st->execute();
+                return $st->execute();
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertFeatsAndTraits($user,$connection){
             $this->explodeFeatsAndTraits();
@@ -568,11 +613,12 @@
                  for($i=0;$i<count($this->featandtraits)-1;$i++){
                      $st->bindParam(":line".($i+1),$this->featandtraits[$i]);                     
                  }
-                 $st->execute();
+                 return $st->execute();
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }
         function insertInventory($user,$connection){
             $this->explodeInvetoryAndEquips();
@@ -587,7 +633,7 @@
                 $st->bindParam(":ie",$this->iE);
                 $st->bindParam(":ig",$this->iG);
                 $st->bindParam(":iP",$this->iP);
-                $st->execute();
+                $aux=$st->execute();
                 //Para as linhas extras do inventário
                 $st=$connection->prepare("INSERT INTO `ddtest`.`InventoryExtra` (`Character_nameCharacter`, 
                 `Character_User_emailUser`, `Line1`, `Line2`, `Line3`, `Line4`, `Line5`, `Line6`, `Line7`, 
@@ -599,34 +645,41 @@
                 for($i=0;$i<count($this->iextra)-1;$i++){
                     $st->bindParam(":line".($i+1),$this->iextra[$i]);
                 }
-                $st->execute();
+                return ($st->execute() AND $aux);
             }
             catch (PDOException $e){
                 throw $e;
             }
+            return false;
         }   
         function insertAttacksAndSpells($user,$connection){
             $this->explodeAttAndSpell();
+            $aux=true;
             try{
                 for($i=0;$i<count($this->attsandspell);$i++){
-                    $st=$connection->prepare("INSERT INTO `ddtest`.`AttacksAndSpells` (`Name`, `Attack`, `Damage`,
-                     `Range`, 
-                    `Ammo`, `Used`, `Attributes_Character_User_emailUser`, `Attributes_Character_nameCharacter`) 
-                    VALUES (:nameA,:att , :dam, :ran, :amm, :used, :userName, :nameChar);");
-                    $st->bindParam(":nameA",$this->attsandspell[$i]->name);
-                    $st->bindParam(":att",$this->attsandspell[$i]->attack);
-                    $st->bindParam(":dam",$this->attsandspell[$i]->damage);
-                    $st->bindParam(":ran",$this->attsandspell[$i]->range);
-                    $st->bindParam(":amm",$this->attsandspell[$i]->ammo);
-                    $st->bindParam(":used",$this->attsandspell[$i]->used);
-                    $st->bindParam(":userName",$user);
-                    $st->bindParam(":nameChar",$this->name);
-                    $st->execute();
+                    if($this->attsandspell[$i]->name !="" AND $this->attsandspell[$i]->attack!="" AND $this->attsandspell[$i]->damage!="" AND $this->attsandspell[$i]->range!=""
+                        AND $this->attsandspell[$i]->ammo!="" AND $this->attsandspell[$i]->used!=""){
+                        $st=$connection->prepare("INSERT INTO `ddtest`.`AttacksAndSpells` (`Name`, `Attack`, `Damage`,
+                        `Range`, 
+                        `Ammo`, `Used`, `Attributes_Character_User_emailUser`, `Attributes_Character_nameCharacter`) 
+                        VALUES (:nameA,:att , :dam, :ran, :amm, :used, :userName, :nameChar);");
+                        $st->bindParam(":nameA",$this->attsandspell[$i]->name);
+                        $st->bindParam(":att",$this->attsandspell[$i]->attack);
+                        $st->bindParam(":dam",$this->attsandspell[$i]->damage);
+                        $st->bindParam(":ran",$this->attsandspell[$i]->range);
+                        $st->bindParam(":amm",$this->attsandspell[$i]->ammo);
+                        $st->bindParam(":used",$this->attsandspell[$i]->used);
+                        $st->bindParam(":userName",$user);
+                        $st->bindParam(":nameChar",$this->name);
+                        $aux= ($aux AND $st->execute());
+                    }
                 }
+                return $aux;
             }
             catch(PDOException $e){
                 throw $e;
             }
+            return false;
         }     
     }
 ?>
