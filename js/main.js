@@ -45,13 +45,15 @@ function setButtons() {
 }
 function setModalChar(id) {
     modalSource=1;
-    $("#name").html(id);
+    $("#Msg").text("Você deseja remover ?");
+    $("#name").text(id);
     $("#ex").modal({
         showClose: false
     });
 }
 function setModalUser() {
     modalSource=2;
+    $("#name").text("");
     $("#Msg").text("Você está prestes a deletar seu usuário, deseja continuar?");
     $("#ex").modal({
         showClose: false

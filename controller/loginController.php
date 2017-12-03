@@ -22,9 +22,13 @@
                 }
         break;
         case 1://logoff
-        session_start();
-        $_SESSION["mailUser"]="";
-        session_destroy();
+            session_start();
+            $_SESSION["mailUser"]="";
+            session_destroy();
+        break;
+
+        case 2: //Check session
+
         break;
     }
 ?>
