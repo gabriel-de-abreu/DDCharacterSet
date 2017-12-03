@@ -9,5 +9,5 @@ O importante nesta fase é a responsividade das páginas, sendo adaptadas para a
 Será realizada a conexão cliente-servidor com o uso de JavaScript e PHP.
 
 ## Fase 3 do Projeto
-Será utilizada a API do Google Maps e AJAX para possibilitar funções adicionais na aplicação.
+Utilização da aplicação de servidor para gerar valores inicais para os atributos
 
