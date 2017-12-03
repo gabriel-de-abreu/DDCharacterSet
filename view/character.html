@@ -17,6 +17,21 @@
 </head>
 
 <body>
+    <!-- Modal HTML embedded directly into document -->
+    <div id="del-modal" class="modal">
+        <p>Você deseja remover
+            <br>
+        </p>
+        <p id="name"></p>
+        <div class="modal-buttons">
+            <button id="yes-del">Sim</button>
+            <button id="no-del">Não</button>
+        </div>
+    </div>
+    <!-- Modal HTML embedded directly into document -->
+    <div id="ex" class="modal">
+        <p id="result"></p>
+    </div>
     <nav class="navbar nav-icon">
         <i id="dropdown-button" class="fa fa-align-justify" style="font-size:24px"></i>
         <div class="dropdown-cont">
@@ -34,12 +49,12 @@
                 <img class="DD-logo" src="img/dndlogo3.png">
                 <div class="DD-sub">
                     <div class="labels">Name: </div>
-                    <input id="name" class="inputs" type="text" name="char_name" required>
+                    <input id="name" class="inputs" type="text" name="char_name" required tabindex="1">
                 </div>
                 <div class="clearfix"></div>
                 <div class="DD-sub">
                     <div class="labels">Level: </div>
-                    <input id="level" class="inputs" type="number" name="char_level" required>
+                    <input id="level" class="inputs" type="number" name="char_level" required tabindex="2">
                 </div>
             </div>
             <div class="clearfix-toggle-640"></div>
@@ -47,21 +62,21 @@
             <!-- Dados do personagem -->
             <div class="container-2 border row">
                 <div class="sub-container">
-                    <input class="input-field" type="text" name="race_class" required>
+                    <input class="input-field" type="text" name="race_class" required tabindex="3">
                     <p>Race & Class</p>
-                    <input class="input-field" type="number" name="exp" required>
+                    <input class="input-field" type="number" name="exp" required tabindex="6">
                     <p>Experience Points</p>
                 </div>
                 <div class="sub-container">
-                    <input class="input-field" type="text" name="background" required>
+                    <input class="input-field" type="text" name="background" required tabindex="4">
                     <p>Background</p>
-                    <input class="input-field" type="text" name="alignment" required>
+                    <input class="input-field" type="text" name="alignment" required tabindex="7">
                     <p>Alignment</p>
                 </div>
                 <div class="sub-container">
-                    <input class="input-field" type="text" name="player_name" required>
+                    <input class="input-field" type="text" name="player_name" required tabindex="5">
                     <p>Player Name</p>
-                    <input class="input-field" type="text" name="adventure-ground" required>
+                    <input class="input-field" type="text" name="adventure-ground" required tabindex="8">
                     <p>Adventuring Ground</p>
                 </div>
             </div>
@@ -71,33 +86,33 @@
         <div class="container-3 border">
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="str" required>
+                <input class="input-field big-input" type="number" name="str" required tabindex="9">
                 <p>Strenght</p>
             </div>
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="dex" required>
+                <input class="input-field big-input" type="number" name="dex" required tabindex="10">
                 <p>Dexterity</p>
             </div>
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="con" required>
+                <input class="input-field big-input" type="number" name="con" required tabindex="11">
                 <p>Constitution</p>
             </div>
             <div class="clearfix-toggle-640"></div>
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="int" required>
+                <input class="input-field big-input" type="number" name="int" required tabindex="12">
                 <p>Intelligence</p>
             </div>
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="wis" required>
+                <input class="input-field big-input" type="number" name="wis" required tabindex="13">
                 <p>Wisdom</p>
             </div>
             <div class="atrib-container">
                 <p class="border atrib-labels">loren</p>
-                <input class="input-field big-input" type="number" name="char" required>
+                <input class="input-field big-input" type="number" name="char" required tabindex="14">
                 <p>Charisma</p>
             </div>
         </div>
@@ -105,81 +120,81 @@
         <div class="section-2 table break-table-960">
             <div class="container-4 row">
                 <div class="sub-container4-1 border ">
-                    <input class="input-field" type="text" name="inspi">
+                    <input class="input-field" type="text" name="inspi" tabindex="15">
                     <p>Inspiration</p>
-                    <input class="input-field" type="text" name="profbonus">
+                    <input class="input-field" type="text" name="profbonus" tabindex="16">
                     <p>Profiency Bonus</p>
                 </div>
                 <div class="sub-container4-2 border">
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-str">
+                            <input type="checkbox" name="check-str" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Strenght
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="str-sav">
+                            <input class="input-throws-field" type="number" name="str-sav" tabindex="17">
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-dex">
+                            <input type="checkbox" name="check-dex" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Dextery
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="dex-sav">
+                            <input class="input-throws-field" type="number" name="dex-sav" tabindex="18">
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-con">
+                            <input type="checkbox" name="check-con" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Constitution
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="con-sav">
+                            <input class="input-throws-field" type="number" name="con-sav" tabindex="19">
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-int">
+                            <input type="checkbox" name="check-int" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Intelligence
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="int-sav">
+                            <input class="input-throws-field" type="number" name="int-sav" tabindex="20">
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-wis">
+                            <input type="checkbox" name="check-wis" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Wisdom
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="wis-sav">
+                            <input class="input-throws-field" type="number" name="wis-sav" tabindex="21">
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-throws">
                         <div class="check-throws">
-                            <input type="checkbox" name="check-char">
+                            <input type="checkbox" name="check-char" tabindex="-1">
                         </div>
                         <div class="label-throws">
                             Charisma
                         </div>
                         <div class="input-throws">
-                            <input class="input-throws-field" type="text" name="char-sav">
+                            <input class="input-throws-field" type="number" name="char-sav" tabindex="22">
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -190,21 +205,21 @@
             <div class="container-5 row">
                 <div class="sub-container-5-1">
                     <div class="armor-div border">
-                        <input class="sub-cont-5-input" type="number" name="armor_class" required>
+                        <input class="sub-cont-5-input" type="number" name="armor_class" required tabindex="23">
                         <p>
                             Armor
                             <br>Class
                         </p>
                     </div>
                     <div class="maxhp-div border">
-                        <input class="sub-cont-5-input" type="number" name="max_hp" required>
+                        <input class="sub-cont-5-input" type="number" name="max_hp" required tabindex="24">
                         <p>
                             Max
                             <br>HP
                         </p>
                     </div>
                     <div class="temphp-div border">
-                        <input class="sub-cont-5-input" type="number" name="temp_hp" required>
+                        <input class="sub-cont-5-input" type="number" name="temp_hp" required tabindex="25">
                         <p>
                             Temp
                             <br>HP
@@ -213,39 +228,39 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="sub-container-5-2 border">
-                    <input class="big-input" type="number" name="current_hp" required> Current HP
+                    <input class="big-input" type="number" name="current_hp" required tabindex="26"> Current HP
                 </div>
                 <div class="clearfix"></div>
                 <div class="sub-container-5-3 border">
                     <div class="sub-sub-container-5-3">
-                        <input class="pre-d" type="number" name="pre_d6">
+                        <input class="pre-d" type="number" name="pre_d6" tabindex="27">
                         <p class="d-title">d6</p>
-                        <input class="pos-d" type="number" name="pos_d6">
+                        <input class="pos-d" type="number" name="pos_d6" tabindex="28">
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-sub-container-5-3">
-                        <input class="pre-d" type="number" name="pre_d8">
+                        <input class="pre-d" type="number" name="pre_d8" tabindex="29">
                         <p class="d-title">d8</p>
-                        <input class="pos-d" type="number" name="pos_d8">
+                        <input class="pos-d" type="number" name="pos_d8" tabindex="30">
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-sub-container-5-3">
-                        <input class="pre-d" type="number" name="pre_d10">
+                        <input class="pre-d" type="number" name="pre_d10" tabindex="31">
                         <p class="d-title">d10</p>
-                        <input class="pos-d" type="number" name="pos_d10">
+                        <input class="pos-d" type="number" name="pos_d10" tabindex="32">
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-sub-container-5-3">
-                        <input class="pre-d" type="number" name="pre_d12">
+                        <input class="pre-d" type="number" name="pre_d12" tabindex="33">
                         <p class="d-title">d12</p>
-                        <input class="pos-d" type="number" name="pos_d12">
+                        <input class="pos-d" type="number" name="pos_d12" tabindex="34">
                     </div>
                     <div class="clearfix"></div>
                     <p class="title">Hit Dice</p>
                 </div>
                 <div class="clearfix"></div>
                 <div class="sub-container-5-4 border">
-                    <input class="passive-input" type="number" name="passive-perc">
+                    <input class="passive-input" type="number" name="passive-perc" tabindex="35">
                     <p class="passive-p">Passive Perception</p>
                 </div>
             </div>
@@ -254,46 +269,46 @@
                 <div class="container-6-1 border">
                     <div class="sub-container-6-2">
                         <p class="title-death">Successes</p>
-                        <input class="check-death" type="checkbox" name="succ-1">
-                        <input class="check-death" type="checkbox" name="succ-2">
-                        <input class="check-death" type="checkbox" name="succ-3">
+                        <input class="check-death" type="checkbox" name="succ-1" tabindex="-1">
+                        <input class="check-death" type="checkbox" name="succ-2" tabindex="-1">
+                        <input class="check-death" type="checkbox" name="succ-3" tabindex="-1">
                     </div>
                     <div class="clearfix"></div>
                     <div class="sub-container-6-2">
                         <p class="title-death">Failures</p>
-                        <input class="check-death" type="checkbox" name="fail-1">
-                        <input class="check-death" type="checkbox" name="fail-2">
-                        <input class="check-death" type="checkbox" name="fail-3">
+                        <input class="check-death" type="checkbox" name="fail-1" tabindex="-1">
+                        <input class="check-death" type="checkbox" name="fail-2" tabindex="-1">
+                        <input class="check-death" type="checkbox" name="fail-3" tabindex="-1">
                     </div>
                     <div class="clearfix"></div>
                     <p class="title">Death Saves</p>
                 </div>
 
                 <div class="container-6-2 border">
-                    <input class="big-input" type="text" name="initiative" required>
+                    <input class="big-input" type="text" name="initiative" required tabindex="36">
                     <p>Initiative</p>
-                    <input class="big-input" type="text" name="speed" required>
+                    <input class="big-input" type="text" name="speed" required tabindex="37">
                     <p>Speed</p>
-                    <input class="big-input" type="text" name="vision" required>
+                    <input class="big-input" type="text" name="vision" required tabindex="38">
                     <p>Vision</p>
                 </div>
             </div>
             <div class="clearfix-toggle-960"></div>
             <div class="container-7 border row">
                 <div class="container-7-split">
-                    <input class="other-prof" type="text" name="other_1">
-                    <input class="other-prof" type="text" name="other_2">
-                    <input class="other-prof" type="text" name="other_3">
-                    <input class="other-prof" type="text" name="other_4">
-                    <input class="other-prof" type="text" name="other_5">
+                    <input class="other-prof" type="text" name="other_1" tabindex="39">
+                    <input class="other-prof" type="text" name="other_2" tabindex="41">
+                    <input class="other-prof" type="text" name="other_3" tabindex="43">
+                    <input class="other-prof" type="text" name="other_4" tabindex="45">
+                    <input class="other-prof" type="text" name="other_5" tabindex="47">
                 </div>
                 <div class="clearfix-toggle-640"></div>
                 <div class="container-7-split">
-                    <input class="other-prof" type="text" name="other_6">
-                    <input class="other-prof" type="text" name="other_7">
-                    <input class="other-prof" type="text" name="other_8">
-                    <input class="other-prof" type="text" name="other_9">
-                    <input class="other-prof" type="text" name="other_10">
+                    <input class="other-prof" type="text" name="other_6" tabindex="40">
+                    <input class="other-prof" type="text" name="other_7" tabindex="42">
+                    <input class="other-prof" type="text" name="other_8" tabindex="44">
+                    <input class="other-prof" type="text" name="other_9" tabindex="46">
+                    <input class="other-prof" type="text" name="other_10" tabindex="48">
                 </div>
                 <div class="clearfix"></div>
                 <p>Other Profiencies
@@ -307,95 +322,95 @@
             <div class="container-8 border row">
                 <div class="sub-container-8">
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-acro">
-                        <input class="skill-input" type="text" name="input-acro">
+                        <input class="check-skill" type="checkbox" name="check-acro" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-acro" tabindex="49">
                         <p class="skill-p">Acrobatics(dex)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-ah">
-                        <input class="skill-input" type="text" name="input-ah">
+                        <input class="check-skill" type="checkbox" name="check-ah" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-ah" tabindex="50">
                         <p class="skill-p">Animal Handling(wis)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-arca">
-                        <input class="skill-input" type="text" name="input-arca">
+                        <input class="check-skill" type="checkbox" name="check-arca" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-arca" tabindex="51">
                         <p class="skill-p">Arcana(int)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-ath">
-                        <input class="skill-input" type="text" name="input-ath">
+                        <input class="check-skill" type="checkbox" name="check-ath" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-ath" tabindex="52">
                         <p class="skill-p">Athletics(str)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-dec">
-                        <input class="skill-input" type="text" name="input-dec">
+                        <input class="check-skill" type="checkbox" name="check-dec" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-dec" tabindex="53">
                         <p class="skill-p">Deception(Char)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-his">
-                        <input class="skill-input" type="text" name="input-his">
+                        <input class="check-skill" type="checkbox" name="check-his" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-his" tabindex="54">
                         <p class="skill-p">History(int)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-ins">
-                        <input class="skill-input" type="text" name="input-ins">
+                        <input class="check-skill" type="checkbox" name="check-ins" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-ins" tabindex="55">
                         <p class="skill-p">Insight(wis)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-intim">
-                        <input class="skill-input" type="text" name="input-intim">
+                        <input class="check-skill" type="checkbox" name="check-intim" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-intim" tabindex="56">
                         <p class="skill-p">Intimidation(cha)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-inves">
-                        <input class="skill-input" type="text" name="input-inves">
+                        <input class="check-skill" type="checkbox" name="check-inves" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-inves" tabindex="57">
                         <p class="skill-p">Investigation(int)</p>
                     </div>
                 </div>
                 <div class="sub-container-8">
-                    <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-med">
-                        <input class="skill-input" type="text" name="input-med">
+                    <div class="skill-div" tabindex="-1">
+                        <input class="check-skill" type="checkbox" name="check-med" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-med" tabindex="58">
                         <p class="skill-p">Medicine(wis)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-nat">
-                        <input class="skill-input" type="text" name="input-nat">
+                        <input class="check-skill" type="checkbox" name="check-nat" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-nat" tabindex="59">
                         <p class="skill-p">Nature(int)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-perc">
-                        <input class="skill-input" type="text" name="input-perc">
+                        <input class="check-skill" type="checkbox" name="check-perc" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-perc" tabindex="60">
                         <p class="skill-p">Perception(wis)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-Perf">
-                        <input class="skill-input" type="text" name="input-perf">
+                        <input class="check-skill" type="checkbox" name="check-Perf" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-perf" tabindex="61">
                         <p class="skill-p">Performance(char)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-pers">
-                        <input class="skill-input" type="text" name="input-pers">
+                        <input class="check-skill" type="checkbox" name="check-pers" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-pers" tabindex="62">
                         <p class="skill-p">Persuasion(cha)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-rel">
-                        <input class="skill-input" type="text" name="input-rel">
+                        <input class="check-skill" type="checkbox" name="check-rel" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-rel" tabindex="63">
                         <p class="skill-p">Religion(int)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-soh">
-                        <input class="skill-input" type="text" name="input-soh">
+                        <input class="check-skill" type="checkbox" name="check-soh" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-soh" tabindex="64">
                         <p class="skill-p">Sleight of Hand(dex)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-steal">
-                        <input class="skill-input" type="text" name="input-steal">
+                        <input class="check-skill" type="checkbox" name="check-steal" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-steal" tabindex="65">
                         <p class="skill-p">Stealth(dex)</p>
                     </div>
                     <div class="skill-div">
-                        <input class="check-skill" type="checkbox" name="check-surv">
-                        <input class="skill-input" type="text" name="input-surv">
+                        <input class="check-skill" type="checkbox" name="check-surv" tabindex="-1">
+                        <input class="skill-input" type="text" name="input-surv" tabindex="66">
                         <p class="skill-p">Survival(wis)</p>
                     </div>
                 </div>
@@ -406,75 +421,75 @@
             <div class="container-9 border row">
                 <div class="sub-container-9-1">
                     <p>Name</p>
-                    <input class="equip-input-name" type="text" name="equip-name-1">
-                    <input class="equip-input-name" type="text" name="equip-name-2">
-                    <input class="equip-input-name" type="text" name="equip-name-3">
-                    <input class="equip-input-name" type="text" name="equip-name-4">
-                    <input class="equip-input-name" type="text" name="equip-name-5">
-                    <input class="equip-input-name" type="text" name="equip-name-6">
-                    <input class="equip-input-name" type="text" name="equip-name-7">
-                    <input class="equip-input-name" type="text" name="equip-name-8">
-                    <input class="equip-input-name" type="text" name="equip-name-9">
+                    <input class="equip-input-name" type="text" name="equip-name-1" tabindex="67">
+                    <input class="equip-input-name" type="text" name="equip-name-2" tabindex="73">
+                    <input class="equip-input-name" type="text" name="equip-name-3" tabindex="79">
+                    <input class="equip-input-name" type="text" name="equip-name-4" tabindex="85">
+                    <input class="equip-input-name" type="text" name="equip-name-5" tabindex="91">
+                    <input class="equip-input-name" type="text" name="equip-name-6" tabindex="97">
+                    <input class="equip-input-name" type="text" name="equip-name-7" tabindex="103">
+                    <input class="equip-input-name" type="text" name="equip-name-8" tabindex="109">
+                    <input class="equip-input-name" type="text" name="equip-name-9" tabindex="115">
                 </div>
                 <div class="sub-container-9-2">
                     <p>Attack</p>
-                    <input class="equip-input" type="text" name="equip-atk-1">
-                    <input class="equip-input" type="text" name="equip-atk-2">
-                    <input class="equip-input" type="text" name="equip-atk-3">
-                    <input class="equip-input" type="text" name="equip-atk-4">
-                    <input class="equip-input" type="text" name="equip-atk-5">
-                    <input class="equip-input" type="text" name="equip-atk-6">
-                    <input class="equip-input" type="text" name="equip-atk-7">
-                    <input class="equip-input" type="text" name="equip-atk-8">
-                    <input class="equip-input" type="text" name="equip-atk-9">
+                    <input class="equip-input" type="number" name="equip-atk-1" tabindex="68">
+                    <input class="equip-input" type="number" name="equip-atk-2" tabindex="74">
+                    <input class="equip-input" type="number" name="equip-atk-3" tabindex="80">
+                    <input class="equip-input" type="number" name="equip-atk-4" tabindex="86">
+                    <input class="equip-input" type="number" name="equip-atk-5" tabindex="92">
+                    <input class="equip-input" type="number" name="equip-atk-6" tabindex="98">
+                    <input class="equip-input" type="number" name="equip-atk-7" tabindex="104">
+                    <input class="equip-input" type="number" name="equip-atk-8" tabindex="110">
+                    <input class="equip-input" type="number" name="equip-atk-9" tabindex="116">
                 </div>
                 <div class="sub-container-9-3">
                     <p>Damage</p>
-                    <input class="equip-input" type="text" name="equip-dam-1">
-                    <input class="equip-input" type="text" name="equip-dam-2">
-                    <input class="equip-input" type="text" name="equip-dam-3">
-                    <input class="equip-input" type="text" name="equip-dam-4">
-                    <input class="equip-input" type="text" name="equip-dam-5">
-                    <input class="equip-input" type="text" name="equip-dam-6">
-                    <input class="equip-input" type="text" name="equip-dam-7">
-                    <input class="equip-input" type="text" name="equip-dam-8">
-                    <input class="equip-input" type="text" name="equip-dam-9">
+                    <input class="equip-input" type="number" name="equip-dam-1" tabindex="69">
+                    <input class="equip-input" type="number" name="equip-dam-2" tabindex="75">
+                    <input class="equip-input" type="number" name="equip-dam-3" tabindex="81">
+                    <input class="equip-input" type="number" name="equip-dam-4" tabindex="87">
+                    <input class="equip-input" type="number" name="equip-dam-5" tabindex="93">
+                    <input class="equip-input" type="number" name="equip-dam-6" tabindex="99">
+                    <input class="equip-input" type="number" name="equip-dam-7" tabindex="105">
+                    <input class="equip-input" type="number" name="equip-dam-8" tabindex="111">
+                    <input class="equip-input" type="number" name="equip-dam-9" tabindex="117">
                 </div>
                 <div class="sub-container-9-4">
                     <p>Range</p>
-                    <input class="equip-input" type="text" name="equip-range-1">
-                    <input class="equip-input" type="text" name="equip-range-2">
-                    <input class="equip-input" type="text" name="equip-range-3">
-                    <input class="equip-input" type="text" name="equip-range-4">
-                    <input class="equip-input" type="text" name="equip-range-5">
-                    <input class="equip-input" type="text" name="equip-range-6">
-                    <input class="equip-input" type="text" name="equip-range-7">
-                    <input class="equip-input" type="text" name="equip-range-8">
-                    <input class="equip-input" type="text" name="equip-range-9">
+                    <input class="equip-input" type="number" name="equip-range-1" tabindex="70">
+                    <input class="equip-input" type="number" name="equip-range-2" tabindex="76">
+                    <input class="equip-input" type="number" name="equip-range-3" tabindex="82">
+                    <input class="equip-input" type="number" name="equip-range-4" tabindex="88">
+                    <input class="equip-input" type="number" name="equip-range-5" tabindex="94">
+                    <input class="equip-input" type="number" name="equip-range-6" tabindex="100">
+                    <input class="equip-input" type="number" name="equip-range-7" tabindex="106">
+                    <input class="equip-input" type="number" name="equip-range-8" tabindex="112">
+                    <input class="equip-input" type="number" name="equip-range-9" tabindex="118">
                 </div>
                 <div class="sub-container-9-5">
                     <p>Ammo</p>
-                    <input class="equip-input" type="text" name="equip-ammo-1">
-                    <input class="equip-input" type="text" name="equip-ammo-2">
-                    <input class="equip-input" type="text" name="equip-ammo-3">
-                    <input class="equip-input" type="text" name="equip-ammo-4">
-                    <input class="equip-input" type="text" name="equip-ammo-5">
-                    <input class="equip-input" type="text" name="equip-ammo-6">
-                    <input class="equip-input" type="text" name="equip-ammo-7">
-                    <input class="equip-input" type="text" name="equip-ammo-8">
-                    <input class="equip-input" type="text" name="equip-ammo-9">
+                    <input class="equip-input" type="number" name="equip-ammo-1" tabindex="71">
+                    <input class="equip-input" type="number" name="equip-ammo-2" tabindex="77">
+                    <input class="equip-input" type="number" name="equip-ammo-3" tabindex="83">
+                    <input class="equip-input" type="number" name="equip-ammo-4" tabindex="89">
+                    <input class="equip-input" type="number" name="equip-ammo-5" tabindex="95">
+                    <input class="equip-input" type="number" name="equip-ammo-6" tabindex="101">
+                    <input class="equip-input" type="number" name="equip-ammo-7" tabindex="107">
+                    <input class="equip-input" type="number" name="equip-ammo-8" tabindex="113">
+                    <input class="equip-input" type="number" name="equip-ammo-9" tabindex="119">
                 </div>
                 <div class="sub-container-9-6">
                     <p>Used</p>
-                    <input class="equip-input" type="text" name="equip-used-1">
-                    <input class="equip-input" type="text" name="equip-used-2">
-                    <input class="equip-input" type="text" name="equip-used-3">
-                    <input class="equip-input" type="text" name="equip-used-4">
-                    <input class="equip-input" type="text" name="equip-used-5">
-                    <input class="equip-input" type="text" name="equip-used-6">
-                    <input class="equip-input" type="text" name="equip-used-7">
-                    <input class="equip-input" type="text" name="equip-used-8">
-                    <input class="equip-input" type="text" name="equip-used-9">
+                    <input class="equip-input" type="number" name="equip-used-1">
+                    <input class="equip-input" type="number" name="equip-used-2">
+                    <input class="equip-input" type="number" name="equip-used-3">
+                    <input class="equip-input" type="number" name="equip-used-4">
+                    <input class="equip-input" type="number" name="equip-used-5">
+                    <input class="equip-input" type="number" name="equip-used-6">
+                    <input class="equip-input" type="number" name="equip-used-7">
+                    <input class="equip-input" type="number" name="equip-used-8">
+                    <input class="equip-input" type="number" name="equip-used-9">
                 </div>
                 <div class="clearfix"></div>
                 <p class="title">Attacks & Spellcasting</p>
@@ -556,10 +571,6 @@
             </div>
         </div>
     </form>
-        <!-- Modal HTML embedded directly into document -->
-        <div id="ex" class="modal">
-            <p id="result"></p>
-        </div>
 </body>
 
 </html>

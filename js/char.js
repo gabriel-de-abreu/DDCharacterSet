@@ -47,14 +47,23 @@ function getStat() {
 }
 function setDeleteButton() {
     $("#DeleteButton").click(function () {
+        $("#name").html(getCookie("nameChar"));
+        $("#del-modal").modal({
+            showClose: false
+        });
+    });
+    $("#yes-del").click(function(){
         $.post("../controller/charactercontroller.php", {
             controllertag: 2,
             charName: getCookie("nameChar")
         }, function (data, status) {
-            alert(data);
             window.location.href = "../view/main.html";
         });
     });
+    $("#no-del").click(function(){
+        $.modal.close();
+    });
+    
 }
 
 function gbn(name) {
@@ -169,7 +178,7 @@ function getData(nameChar) {
             charName: nameChar
         },
         function (data, status) {
-            console.log(data);
+            //console.log(data);
             var objChar = JSON.parse(data);
             //console.log(objChar);
             sbn("char_name", objChar.name);
