@@ -1,44 +1,66 @@
-function loadPage() {
-    $.post("../controller/maincontroller.php", {
-        tag: 0
-    }, function (data, status) {
-        document.getElementById("mainTable").innerHTML = data;
-        $("button").click(function (event) {
-            var fullid = event.target.id;
-            var id = "";
-            if (fullid.search("alter") != -1) {
-                id = fullid.replace("alter", "");
-                gotoChar(id);
-            }
-            else if (fullid.search("remov") != -1) {
-                id = fullid.replace("remov", "");
-                $("#name").html(id);
-                $("#ex").modal({
-                    showClose: false
-                });
-            }
-            else if (fullid.search("createChar") != -1) {
-                gotoCreateChar();
-            }
-            else if (fullid.search("logoff") != -1) {
-                logoff();
-            }else if(~fullid.search("yes")){
-                deleteChar($("#name").html());
-                $.modal.close();
-            }else if(~fullid.search("no")){
-                $.modal.close();
-            }
-        });
-    });
-}
+var modalSource = 0;
 $(document).ready(function () {
     loadPage();
     setDelete();
 
 });
-function setDelete(){
-    $("#delete-user").click(function(){
-        deleteUser();
+function loadPage() {
+    $.post("../controller/maincontroller.php", {
+        tag: 0
+    }, function (data, status) {
+        document.getElementById("mainTable").innerHTML = data;
+        setButtons();
+
+    });
+}
+function setButtons() {
+    $("button").click(function (event) {
+        var fullid = event.target.id;
+        var id = "";
+        if (fullid.search("alter") != -1) {
+            id = fullid.replace("alter", "");
+            gotoChar(id);
+        }
+        else if (fullid.search("remov") != -1) {
+            id = fullid.replace("remov", "");
+            setModalChar(id);
+        }
+        else if (fullid.search("createChar") != -1) {
+            gotoCreateChar();
+        }
+        else if (fullid.search("logoff") != -1) {
+            logoff();
+        }
+        else if (~fullid.search("yes") && modalSource == 1) {
+            deleteChar($("#name").html());
+            $.modal.close();
+        }
+        else if (~fullid.search("yes") && modalSource == 2) {
+            deleteUser();
+            $.modal.close();
+        }
+        else if (~fullid.search("no")) {
+            $.modal.close();
+        }
+    });
+}
+function setModalChar(id) {
+    modalSource=1;
+    $("#name").html(id);
+    $("#ex").modal({
+        showClose: false
+    });
+}
+function setModalUser() {
+    modalSource=2;
+    $("#Msg").text("Você está prestes a deletar seu usuário, deseja continuar?");
+    $("#ex").modal({
+        showClose: false
+    });
+}
+function setDelete() {
+    $("#delete-user").click(function () {
+        setModalUser();
     });
 }
 function deleteChar(nameChar) {
@@ -46,7 +68,7 @@ function deleteChar(nameChar) {
         tag: 1,
         charName: nameChar
     }, function (data, status) {
-        console.log(data);
+        //console.log(data);
         loadPage();
     });
 }
@@ -72,11 +94,10 @@ function logoff() {
     });
     window.location.href = "../view/index.html";
 }
-function deleteUser(){
+function deleteUser() {
     $.post("../controller/maincontroller.php", {
         tag: 2
     }, function (data, status) {
-        alert(data);
     });
-    window.location.href = "../view/index.html";  
+    window.location.href = "../view/index.html";
 }
