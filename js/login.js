@@ -5,6 +5,8 @@ function verifyLogin(){
         password: document.getElementsByName("pass")[0].value
     }, function (data, status) {
         if(~data.indexOf("1")){
+            console.log(document.getElementsByName("login")[0].value);
+            setCookie("userLogin",document.getElementsByName("login")[0].value,5);
             window.location.href = "../view/main.html";
         }else{
             $('#ex').modal();

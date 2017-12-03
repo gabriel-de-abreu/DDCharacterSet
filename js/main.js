@@ -2,7 +2,6 @@ var modalSource = 0;
 $(document).ready(function () {
     loadPage();
     setDelete();
-
 });
 function loadPage() {
     $.post("../controller/maincontroller.php", {
