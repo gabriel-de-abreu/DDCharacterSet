@@ -1,8 +1,8 @@
 var modalSource = 0;
+checkSession();
 $(document).ready(function () {
     loadPage();
     setDelete();
-    checkSession();
 });
 function loadPage() {
     $.post("../controller/maincontroller.php", {
