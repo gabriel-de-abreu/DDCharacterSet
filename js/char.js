@@ -2,6 +2,7 @@ var sendOption = 0;
 $(document).ready(function () {
     setGenStats();
     setFormAction();
+    checkSession();
     sbn("player_name",getCookie("userLogin"));
     if (getCookie("mustLoad") == "true") {
         sendOption=1;

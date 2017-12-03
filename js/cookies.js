@@ -20,3 +20,13 @@ function getCookie(cname) {
     }
     return "";
 }
+function checkSession(){
+    $.post("../controller/loginController.php",
+    {
+        tag: 2
+    },function(data,status){
+        if(data.search("OK")==-1){
+            window.location.href = "../view/index.html";
+        }
+    });
+}
