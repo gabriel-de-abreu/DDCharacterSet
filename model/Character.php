@@ -128,7 +128,7 @@
                     PDO::ATTR_PERSISTENT => true
                 ));
                 if(!$this->insertGeneralInfos($user,$dbh)){
-                    echo "<p>Falha ao inserir informações gerais! \n Usuário já existente</p>";
+                    echo "<p>Falha ao inserir informações gerais! \n Personagem já existente</p>";
                     $aux1=false;
                     die();
                 }
