@@ -178,9 +178,18 @@
             }
            // echo "Adicionando character";
         }
-        function updateChar($user,$character){
-            $this->deleteCharacter($user,$character,true);
-            $this->addChar($user,true);
+        function updateChar($user,$character,$sameName){
+            if($sameName){
+                $this->deleteCharacter($user,$character,true);
+                $this->addChar($user,true);
+            }else{
+                if(!$this->alreadyExist($user,$this->name)){
+                    $this->deleteCharacter($user,$character,true);
+                    $this->addChar($user,true);
+                 }else{
+                    echo "<p>Personagem já existente</p>";
+                }
+            }
         }
         function getChar($userName,$charName){
             //echo "Buscando Character";
@@ -699,15 +708,19 @@
             $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
                 PDO::ATTR_PERSISTENT => true
             ));
-            $stmp=$dbh->prepare("SELECT * FROM `Character` WHERE nameCharacter=:char AND User_emailUser=:user;");
-            $stmp->bindParam(":char",$charName);
+            $stmp=$dbh->prepare("SELECT * FROM `Character` 
+            WHERE nameCharacter=:charName AND User_emailUser=:user");
+            $stmp->bindParam(":charName",$charName);
             $stmp->bindParam(":user",$user);
-            $stmp->execute();
-            if($stmp->rowCount()==0){
-                return false;
-            }else{
-                return true;
+            if($stmp->execute()){
+                if($stmp->rowCount()==0){
+                    return false;
+                    
+                }else{
+                    return true;
+                }
             }
+            return true;
         }
     }
 ?>

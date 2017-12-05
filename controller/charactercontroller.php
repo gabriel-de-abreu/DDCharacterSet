@@ -81,7 +81,8 @@
             
             case 1:
             //Atualizar character
-                generateCharacter()->updateChar($_SESSION["mailUser"],$_POST["charName"]);
+                $checkaux=($_POST["charName"]==$_POST["name"]);
+                generateCharacter()->updateChar($_SESSION["mailUser"],$_POST["charName"],$checkaux);
                 break;
             case 2:
             //Deletar Character
