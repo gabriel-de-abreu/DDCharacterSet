@@ -173,6 +173,7 @@ function Send() {
         });
 }
 function getData(nameChar) {
+    clearData();
     $.post("../controller/charactercontroller.php",
         {
             //Dados do personagem
@@ -256,4 +257,10 @@ function getData(nameChar) {
                 sbn("inv-" + (it + 1), objChar.iextra[it]);
             }
         });
+}
+function clearData(){
+    var fields= document.getElementsByTagName("input");
+    for(var i=0;i<fields.length;i++){
+        fields[i].value="";
+    }
 }
