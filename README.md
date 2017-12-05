@@ -9,5 +9,5 @@ O importante nesta fase é a responsividade das páginas, sendo adaptadas para a
 Será realizada a conexão cliente-servidor com o uso de JavaScript e PHP.
 
 ## Fase 3 do Projeto
-Utilização da aplicação de servidor para gerar valores inicais para os atributos
+Utilização da aplicação de servidor para gerar valores iniciais para os atributos
 
