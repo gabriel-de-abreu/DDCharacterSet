@@ -694,6 +694,20 @@
                     echo "Falha ao excluir personagem!";
                 }
             }
-        }     
+        }
+        function alreadyExist($user,$charName){
+            $dbh = new PDO('mysql:host=localhost;dbname=ddtest', "root", "", array(
+                PDO::ATTR_PERSISTENT => true
+            ));
+            $stmp=$dbh->prepare("SELECT * FROM `Character` WHERE nameCharacter=:char AND User_emailUser=:user;");
+            $stmp->bindParam(":char",$charName);
+            $stmp->bindParam(":user",$user);
+            $stmp->execute();
+            if($stmp->rowCount()==0){
+                return false;
+            }else{
+                return true;
+            }
+        }
     }
 ?>
